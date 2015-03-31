@@ -8,10 +8,14 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         users.hasMany(models.pantry_ingredients, {
-          foreignKey: 'user_id'
+          foreignKey: 'user_id',
+          onDelete: 'cascade',
+          hooks: true
         });
         users.hasMany(models.fridge_ingredients, {
-          foreignKey: 'user_id'
+          foreignKey: 'user_id',
+          onDelete: 'cascade',
+          hooks: true
         });
       }
     }
