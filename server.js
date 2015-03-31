@@ -1,19 +1,104 @@
-var application_root = __dirname;
-var express = require ('express');
-var logger = require ('morgan');
-var models = require('./models');
-var bodyParser = require ('body-parser');
-var Pantry_ingredient = models.pantry_ingredients;
-var User = models.users;
-var Fridge_ingredient = models.fridge_ingredients;
 
-var app = express();
+var application_root = __dirname;
+var express    = require('express');
+var logger     = require('morgan');
+var models     = require('./models');
+var bodyParser = require('body-parser');
+var User       = models.users;
+var Fridge_ingredient = models.fridge_ingredients;
+var Pantry_ingredient = models.pantry_ingredients;
+var app        = express();
 
 app.use(logger('dev'));
 app.use(bodyParser());
+
 app.use(express.static(__dirname + '/public'));
 
-//Find all pantry ingredients, regardless of user
+app.get('/', function(req, res) {
+  res.send('Hello there, oh node person');
+});
+
+app.get('/users', function(req, res) {
+  User
+    .findAll({include: [{all:true,nested:true}]})
+    .then(function(user) {
+      res.send(user);
+    });
+});
+
+app.get('/users/:id', function(req, res) {
+  User
+    .findOne({ 
+      where: {id: req.params.id},
+      include: [{all:true,nested:true}]})
+    .then(function(user) {
+      res.send(user);
+    });
+});
+
+app.post('/users', function(req, res){
+  User.create(req.body)
+  .then(function(newUser){
+    res.send(newUser);
+  });
+});
+
+app.put('/users/:id', function(req, res) {
+  User
+    .findOne(req.params.id)
+    .then(function(user){
+      user
+        .update(req.body)
+        .then(function(updatedUser){
+          res.send(updatedUser);
+        });
+    });
+});
+
+app.delete('/users/:id', function(req, res){
+  console.log('delete triggered');
+  User.findOne(req.params.id)
+      .then(function(user){
+        user.destroy()
+        .then(function(){
+          res.send(user);
+        });
+    });
+});
+
+app.get('/fridge_ingredients', function(req, res){
+  Fridge_ingredient.findAll().then(function(fridge_ingredients){
+    res.send(frige_ingredients);
+  });
+});
+
+app.put('/fridge_ingredients/:id', function(req, res){
+  Fridge_ingredient
+    .findOne(req.params.id)
+    .then(function(fridge_ingredient){
+      fridge_ingredient.update(req.body)
+    });
+});
+
+app.post('/fridge_ingredients/', function(req, res){
+  Fridge_ingredient
+    .create(req.body)
+    .then(function(newfridge_ingredient){
+      res.send(newFridge_ingredient)
+    });
+});
+
+app.delete('/fridge_ingredients/:id', function (req, res){
+  Fridge_ingredient
+    .findOne(req.params.id)
+    .then(function(fridge_ingredient){
+      fridge_ingredient.destroy()
+      .then(function() {
+        res.send(fridge_ingredient)
+      });
+    });
+});
+
 app.get('/pantry_ingredients', function (req, res) {
 	console.log('poop');
 	Pantry_ingredient
@@ -72,6 +157,8 @@ app.delete('/pantry_ingredients/:id', function (req, res) {
 	});
 });
 
-app.listen(3000, function () {
-	console.log('listening to port 3000 brough');
+
+
+app.listen(3000, function() {
+  console.log('Server running on 3000...');
 });
