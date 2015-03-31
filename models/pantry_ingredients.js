@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     user_id: DataTypes.INTEGER,
     ingredient_class: DataTypes.STRING
   }, {
-    timestapms: false,
+    timestamps: false,
     classMethods: {
       associate: function(models) {
         pantry_ingredients.belongsTo(models.users, {

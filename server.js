@@ -10,7 +10,7 @@ var app        = express();
 app.use(logger('dev'));
 app.use(bodyParser());
 
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
   res.send('Hello there, oh node person');
@@ -35,10 +35,11 @@ app.get('/users/:id', function(req, res) {
 });
 
 app.post('/users', function(req, res){
-  User.create(req.body)
-  .then(function(newUser){
-    res.send(newUser);
-  });
+	console.log(req.body);
+  // User.create(req.body)
+  // .then(function(newUser){
+  //   res.send(newUser);
+  // });
 });
 
 app.put('/users/:id', function(req, res) {
