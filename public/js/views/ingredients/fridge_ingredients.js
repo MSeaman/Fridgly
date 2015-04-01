@@ -2,7 +2,7 @@
 
 
 	events: {
-		'click #add-to-search-button': 'selectIngredient'
+		'click .add-to-search': 'selectIngredient'
 	},
 
 	initialize: function(){
