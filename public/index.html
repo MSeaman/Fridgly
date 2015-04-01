@@ -29,3 +29,71 @@
 	<script src='js/views/ingredients/pantry_ingredients.js'></script>
 	<script src='js/views/ingredients/pantry_ingredients_list.js'></script>
 </head>
+<body>
+
+	<template id="fridge-ingredients-template">
+		<h1>Fridge Ingredients</h1>
+		<li class="fridge-ingredient-name" data-id='{{id}}'>{{name}}</span>
+		<input type="text" class="ingredient" placeholder="New Ingredient">
+		<button class="add-ingredient">Add Ingredient</button>
+		<button class="delete">Remove Ingredient</button>
+		<button class="add-to-search">Add to Search</button>
+		<button class="move-to-pantry">Move to Pantry</button>
+	</template>
+
+	<template id="pantry-ingredients-template">
+		<h1>Pantry Ingredients</h1>
+		<li class="pantry-ingredient-name" data-id='{{id}}'>{{name}}</span>
+		<input type="text" class="ingredient" placeholder="New Ingredient">
+		<button class="add-ingredient">Add Ingredient</button>
+		<button class="delete">Remove Ingredient</button>
+		<button class="move-to-fridge">Move to Fridge</button>
+	</template>
+
+	<template id="users-template">
+		<h1>Users</h1>
+		<li class="current-user" data-id '{{id}}'>{{name}}</li>
+		<li class="create-user">Create User</li>
+		<li class="edit-user">Edit Current User</li>
+	</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
