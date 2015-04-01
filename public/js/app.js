@@ -1,1 +1,10 @@
-console.log('sup bitches');
+var App = {
+	Models: {},
+	Collections: {},
+	Views: {},
+	Routers: {}
+};
+
+$(function () {
+	console.log(app dot js initialize breau);
+});
