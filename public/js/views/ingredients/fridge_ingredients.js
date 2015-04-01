@@ -2,10 +2,10 @@ App.Views.FridgeIngredient = Backbone.View.extend({
 
 
 	events: {
-		'click .add-to-search': 'selectIngredient'
-		'click .delete': 'delete'
-		'click .add-ingredient': 'addIngredient'
-		'clcik .add-to-pantry': 'addToPantry'
+		'click .add-to-search': 'selectIngredient',
+		'click .delete': 'delete',
+		'click .add-ingredient': 'addIngredient',
+		'click .add-to-pantry': 'addToPantry'
 	},
 
 	initialize: function(){
