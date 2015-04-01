@@ -28,7 +28,7 @@ app.get('/users', function(req, res) {
 
 app.get('/users/:id', function(req, res) {
   User
-    .findOne({ 
+    .findOne({
       where: {id: req.params.id},
       include: [{all:true,nested:true}]})
     .then(function(user) {
@@ -99,6 +99,16 @@ app.delete('/fridge_ingredients/:id', function (req, res){
     });
 });
 
+app.get('/users/:id/fridge_ingredients', function(req, res) {
+  Fridge_ingredient
+    .findAll({
+      where: {user_id: req.params.id}
+    })
+    .then(function(fridge_ingredients){
+      res.send(fridge_ingredients);
+    });
+});
+
 app.get('/pantry_ingredients', function (req, res) {
 	console.log('poop');
 	Pantry_ingredient
@@ -121,7 +131,7 @@ app.get('/users/:id/pantry_ingredients', function (req, res) {
 
 //Create Pantry Ingredients
 app.post('/users/:id/pantry_ingredients', function (req, res) {
-	User 
+	User
 	.findOne(req.params.id)
 	.then(function (user) {
 		Pantry_ingredient.create(req.body)
