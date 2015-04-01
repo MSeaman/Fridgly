@@ -4,8 +4,8 @@ App.Collections.FridgeIngredients = Backbone.Collection.extend({
 	model: App.Models.Fridge_ingredient,
 
 	getFridgeIngredients: function () {
-		// var userId = get id from user selected in drop down
 		console.log('getting fridge ingredients');
+		var userId = null;
 		$.ajax({
 			url: '/users/' + userId + '/fridge_ingredients',
 			method: 'get'
