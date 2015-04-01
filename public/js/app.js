@@ -1,3 +1,5 @@
+console.log('loaded brough');
+
 var App = {
 	Models: {},
 	Collections: {},
@@ -6,5 +8,5 @@ var App = {
 };
 
 $(function () {
-	console.log(app dot js initialize breau);
+	console.log('app dot js initialize breau');
 });

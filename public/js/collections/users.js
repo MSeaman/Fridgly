@@ -1,4 +1,4 @@
-`App.Collections.Users = Backbone.Collection.extend({
+App.Collections.Users = Backbone.Collection.extend({
 	//this.listenTo(, 'reset')
 	url: '/users',
 	model: App.Models.User,

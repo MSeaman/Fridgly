@@ -1,4 +1,4 @@
-`App.Collections.PantryIngredients = Backbone.Collection.extend({
+App.Collections.PantryIngredients = Backbone.Collection.extend({
 	//this.listenTo(, 'reset')
 	url: '/users/:id/pantry_ingredients',
 	model: App.Models.Pantry_ingredient,
