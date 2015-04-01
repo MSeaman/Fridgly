@@ -9,4 +9,6 @@ var App = {
 
 $(function () {
 	console.log('app dot js initialize breau');
+	App.fridgeIngredients = new App.Collections.FridgeIngredients;
+	//App.fridgeIngredients.fetch();
 });

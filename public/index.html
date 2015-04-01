@@ -33,8 +33,10 @@
 <body>
 	<h1>Fridgly, Brough</h1>
 	<select name="userDropDown" id="userDropDown">
-			<option id="userDropDownValue" value=""></option>
-		</select>
+		<option id="userDropDownValue" value="1">1</option>
+		<option id="userDropDownValue" value="2">2</option>
+	</select>
+	<button class='select-user'>Select User</button>
 
 	<div id='fridge-ingredients-container'>
 		<h1>Fridge Ingredients</h1>
@@ -63,6 +65,8 @@
 	</div>
 		<template id="pantry-ingredients-template">
 			<li class="pantry-ingredient-name" data-id='{{id}}'>{{name}}</span>
+			<input type="checkbox" id ='pantry-ingredient-checkbox' >
+	
 		</template>
 
 		<template id="fridge-ingredients-template">

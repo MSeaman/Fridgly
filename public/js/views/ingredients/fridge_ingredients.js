@@ -1,8 +1,8 @@
-App.Views.FridgeIngredient = Backbone.View.extend({
+/*App.Views.FridgeIngredient = Backbone.View.extend({
 
 
 	events: {
-		'click .fridge-ingredient-name': 'selectIngredient'
+		'click #add-to-search-button': 'selectIngredient'
 	},
 
 	initialize: function(){
@@ -24,4 +24,4 @@ App.Views.FridgeIngredient = Backbone.View.extend({
 		var singleIng = this.model.get('name');
 		ingredientArray.push(singleIng);
 	}
-})
+})*/
