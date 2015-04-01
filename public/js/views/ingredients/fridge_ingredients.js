@@ -2,12 +2,14 @@ App.Views.FridgeIngredient = Backbone.View.extend({
 
 
 	events: {
-		'click .fridge-ingredient-name': 'selectIngredient'
+		'click .add-to-search': 'selectIngredient'
+		'click .delete': 'delete'
+		'click .add-ingredient': 'addIngredient'
+		'clcik .add-to-pantry': 'addToPantry'
 	},
 
 	initialize: function(){
 		this.template = Handlebars.compile($('#').html());
-		this.listenTo('','click' selectIngredient);
 		this.render();
 	},
 
@@ -15,13 +17,32 @@ App.Views.FridgeIngredient = Backbone.View.extend({
 		this.$el.html(this.template(this.model.toJSON()));
 	},
 
-	renderAll: function() {
-    this.collection.each(this.render, this)
-  },
+  	delete: function(){
+  		this.model.destroy()
+  	},
+
+  	addIngredient: function(){
+  		var ingredient = this.$('.ingredient')
+  		ingredient.val().appendTo('#fridge-ingredients-container');
+  	},
+
+  	addToPantry: function(){
+  		var ingredientArray = [];
+		var singleIng = this.model.get('name');
+		var checkedIng = this.model.get('#fridge-ingredient-checkbox');
+		if (checkedIng.checked =true){
+		ingredientArray.push(singleIng);
+		} else {console.log('poop')};
+		ingredientArray.appendTo('#pantry-ingredients-containter');
+  	},
 
 	selectIngredient: function(){
 		var ingredientArray = [];
 		var singleIng = this.model.get('name');
+		var checkedIng = this.model.get('#fridge-ingredient-checkbox');
+		if (checkedIng.checked =true){
 		ingredientArray.push(singleIng);
+		} else {console.log('poop')};
+		ingredientArray.appendTo('#search-ingredients-containter');
 	}
-})
+});
