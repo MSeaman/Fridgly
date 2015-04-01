@@ -1,6 +1,6 @@
 App.Views.FridgeIngredientList = Backbone.View.extend({
 
-	el: ,
+	
 
   initialize: function() {
     this.listenTo(this.collection, 'reset', this.renderAll);
