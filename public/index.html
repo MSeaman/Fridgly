@@ -9,6 +9,7 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.14/backbone.localStorage-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
 
+	<link rel="stylesheet" href="css/style.css">
 	<script src='js/app.js'></script>
 	<script src='js/models/fridge_ingredient.js'></script>
 	<script src='js/models/pantry_ingredient.js'></script>
@@ -30,25 +31,44 @@
 	<script src='js/views/ingredients/pantry_ingredients_list.js'></script>
 </head>
 <body>
+	<h1>Fridgly, Brough</h1>
+	<select name="userDropDown" id="userDropDown">
+			<option id="userDropDownValue" value=""></option>
+		</select>
 
-	<template id="fridge-ingredients-template">
+	<div id='fridge-ingredients-container'>
 		<h1>Fridge Ingredients</h1>
-		<li class="fridge-ingredient-name" data-id='{{id}}'>{{name}}</span>
 		<input type="text" class="ingredient" placeholder="New Ingredient">
 		<button class="add-ingredient">Add Ingredient</button>
 		<button class="delete">Remove Ingredient</button>
 		<button class="add-to-search">Add to Search</button>
 		<button class="move-to-pantry">Move to Pantry</button>
-	</template>
+	</div>
 
-	<template id="pantry-ingredients-template">
+	<div id='pantry-ingredients-container'>
 		<h1>Pantry Ingredients</h1>
-		<li class="pantry-ingredient-name" data-id='{{id}}'>{{name}}</span>
 		<input type="text" class="ingredient" placeholder="New Ingredient">
 		<button class="add-ingredient">Add Ingredient</button>
 		<button class="delete">Remove Ingredient</button>
 		<button class="move-to-fridge">Move to Fridge</button>
-	</template>
+	</div>
+	<div id='search-container'>
+		<h1>Search, Brough</h1>
+		<div id='search-ingredients-container'></div>
+		<button class='search-button'>Search For Recipes</button>
+		<button class='advanced-search-button'>Advanced Search</button>
+	</div>
+	<div id='advanced-search-container'>
+		<h1>Advanced Search Breau</h1>
+	</div>
+		<template id="pantry-ingredients-template">
+			<li class="pantry-ingredient-name" data-id='{{id}}'>{{name}}</span>
+		</template>
+
+		<template id="fridge-ingredients-template">
+			<li class="fridge-ingredient-name" data-id='{{id}}'>{{name}}</span>
+			<input type="checkbox" id ='fridge-ingredient-checkbox' >
+		</template>
 
 	<template id="users-template">
 		<h1>Users</h1>

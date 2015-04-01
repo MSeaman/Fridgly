@@ -4,9 +4,10 @@ App.Collections.PantryIngredients = Backbone.Collection.extend({
 	model: App.Models.Pantry_ingredient,
 
 	getPantryIngredients: function () {
+		//var userId = get id from user selected in drop down
 		console.log('getting patry ingredients');
 		$.ajax({
-			url: '/users/:id/pantry_ingredients',
+			url: '/users/' + userId + '/pantry_ingredients',
 			method: 'get'
 		})
 		.done(this.addPantryIngredient)

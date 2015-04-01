@@ -1,4 +1,4 @@
-App.View.FridgeIngredient = Backbone.View.extend({
+App.Views.FridgeIngredient = Backbone.View.extend({
 
 
 	events: {
