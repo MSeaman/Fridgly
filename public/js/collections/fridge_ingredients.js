@@ -1,13 +1,14 @@
 App.Collections.FridgeIngredients = Backbone.Collection.extend({
 	//this.listenTo(, 'reset')
 	url: '/users/:id/fridge_ingredients',
-	model: App.Models.Fridge_ingredient,
+	model: App.Models.FridgeIngredient,
+
+	userId: '',
 
 	getFridgeIngredients: function () {
 		console.log('getting fridge ingredients');
-		var userId = null;
 		$.ajax({
-			url: '/users/' + userId + '/fridge_ingredients',
+			url: '/users/' + this.userId + '/fridge_ingredients',
 			method: 'get'
 		})
 		.done(this.addFridgeIngredient)
@@ -15,11 +16,12 @@ App.Collections.FridgeIngredients = Backbone.Collection.extend({
 	addFridgeIngredient: function (fridgeIngredients) {
 		console.log('got fridge ingredients');
 		App.fridgeIngredients.reset();
-		fridgeIngredients.forEach(function(fridgeIngredient) {
+		fridgeIngredients.forEach(function(fridgeIng) {
 			App.fridgeIngredients.add({
-				name: fridgeIngredient.name,
+				name: fridgeIng.name
 
 			});
-		})
+		});
+		// App.fridgeIngredientsListView.renderAll();
 	}
 });
