@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <title>Fridgly</title>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -16,8 +17,8 @@
 	<script src="js/models/user.js"></script>
 	<script src='js/collections/fridge_ingredients.js'></script>
 	<script src='js/collections/pantry_ingredients.js'></script>
+	<script src='js/collections/search_ingredients.js'></script>
 	<script src='js/collections/users.js'></script>
-
 	<script src='js/views/users/create_user.js'></script>
 	<script src='js/views/users/create_user.js'></script>
 	<script src='js/views/users/create_user.js'></script>
@@ -29,7 +30,9 @@
 	<script src='js/views/ingredients/fridge_ingredients_list.js'></script>
 	<script src='js/views/ingredients/pantry_ingredients.js'></script>
 	<script src='js/views/ingredients/pantry_ingredients_list.js'></script>
+
 </head>
+
 <body>
 	<h1>Fridgly, Brough</h1>
 	<select name="userDropDown" id="userDropDown">
@@ -65,19 +68,19 @@
 		<h1>Advanced Search Breau</h1>
 	</div>
 		<template id="pantry-ingredients-template">
-			<li class="pantry-ingredient-name" data-id='{{id}}'>{{name}}</span>
+			<li class="pantry-ingredient-name" data-id='{{pantryInfId}}'>{{name}}</span>
 			<input type="checkbox" id ='pantry-ingredient-checkbox' >
 	
 		</template>
 
 		<template id="fridge-ingredients-template">
-			<li class="fridge-ingredient-name" data-id='{{id}}'>{{name}}</span>
+			<li class="fridge-ingredient-name" data-id = {{fridgeIngId}}>{{name}}</span>
 			<input type="checkbox" id ='fridge-ingredient-checkbox' >
 		</template>
 
 	<template id="users-template">
 		<h1>Users</h1>
-		<li class="current-user" data-id '{{id}}'>{{name}}</li>
+		<li class="current-user" data-id ='{{id}}'>{{name}}</li>
 		<li class="create-user">Create User</li>
 		<li class="edit-user">Edit Current User</li>
 	</template>

@@ -18,8 +18,8 @@ App.Collections.FridgeIngredients = Backbone.Collection.extend({
 		App.fridgeIngredients.reset();
 		fridgeIngredients.forEach(function(fridgeIng) {
 			App.fridgeIngredients.add({
-				name: fridgeIng.name
-
+				name: fridgeIng.name,
+				fridgeIngId: fridgeIng.id
 			});
 		});
 		// App.fridgeIngredientsListView.renderAll();
