@@ -19,13 +19,19 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
 
   setUser: function() {
     App.fridgeIngredients.userId = $('#userDropDown').val();
-    App.fridgeIngredients.getFridgeIngredients()
+    //App.pantryIngredients.userId = $('#userDropDown').val();
+    App.fridgeIngredients.getFridgeIngredients();
+    //App.pantryIngredients.getPantryIngredients();
   },
 
   addIngredient: function(){
-      console.log('add ingredient button clicked');
-     var ingredient = this.$('.ingredient');
-     ingredient.val().appendTo('#fridge-ingredients-container');
+    console.log('add ingredient button clicked brough');
+    var ingredientName = $('#add-fridge-ingredient-input').val();
+    //this.collction.userId = $('#userDropDown').val();
+    this.collection.create({name: ingredientName});
+    debugger
+    //this.collection.sync();
+
     },
 
     addToPantry: function(){

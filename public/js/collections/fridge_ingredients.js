@@ -1,9 +1,11 @@
 App.Collections.FridgeIngredients = Backbone.Collection.extend({
 	//this.listenTo(, 'reset')
-	url: '/users/:id/fridge_ingredients',
+	userId: '',
+
+	url: function(){ return '/users/' + this.userId + '/fridge_ingredients'},
+
 	model: App.Models.FridgeIngredient,
 
-	userId: '',
 
 	getFridgeIngredients: function () {
 		console.log('getting fridge ingredients');
@@ -22,6 +24,16 @@ App.Collections.FridgeIngredients = Backbone.Collection.extend({
 				fridgeIngId: fridgeIng.id
 			});
 		});
-		// App.fridgeIngredientsListView.renderAll();
-	}
+	},
+	/*createFridgeIngredient: function (ingredient) {
+		console.log('new fridge ingredient created broughhhhh');
+		$.ajax({
+			url: 'user/' + userId + 'fridge_ingredients',
+			method: 'post',
+			data: {name: ingredient.name}
+		})
+		.done(this.)
+	}*/
 });
+
+//find or create sequelize method; count method to query 
