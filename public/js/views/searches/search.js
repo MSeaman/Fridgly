@@ -8,6 +8,7 @@ App.Views.Search = Backbone.View.extend({
 
 	initialize: function(){
     this.listenTo(this.collection, 'add', this.renderAll);
+    
 	},
  
   renderAll: function() {
