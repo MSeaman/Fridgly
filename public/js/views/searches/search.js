@@ -20,14 +20,18 @@ App.Views.Search = Backbone.View.extend({
     searchResultView.$el.appendTo($('#search-ingredients-container'));
   },
   //fix and comment back in for search calls
-/*	search: function() {
-    $.ajax({
-    var userInput = $('#search-ingredients-container').val();
+	search: function() {
+    var search = $('#search-container');
+      for (var i = 0; i < search.children().length; i ++){
+      var ingredientId = search.children().eq(i).children().eq(0).attr('name');
+      }
+      debugger
     var apiRootKey = 'http://api.yummly.com/v1/api/recipes?_app_id=66a10d93&_app_key=8bfd076a86bb08e4c703da382368127c';
+    $.ajax({
       url: apiRootKey + userInput,
       method: 'GET'
     }).done(this.showResults.bind(this));
-  },*/
+  },
 
   showResults: function() {
     App.searchResults.model = this.model;
