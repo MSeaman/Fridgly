@@ -1,13 +1,12 @@
 App.Views.FridgeIngredientList = Backbone.View.extend({
 
   initialize: function () {
-    console.log('new fridge ingredients view created brough')
+    console.log('new fridge ingredients view created brough');
     this.listenTo(this.collection, 'reset', this.renderAll);
     this.listenTo(this.collection, 'add', this.renderOne);
 
   },
 
-	//el: '#fridge-ingredients-list-container',
   el: 'body',
 
   events: {
@@ -15,14 +14,12 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     'click .delete': 'delete',
     'click .add-ingredient': 'addIngredient',
     'click .add-to-pantry': 'addToPantry',
-    'click .select-user':'setUser'
-
+    'click .select-user':'setUser',
   },
 
   setUser: function() {
     App.fridgeIngredients.userId = $('#userDropDown').val();
     App.fridgeIngredients.getFridgeIngredients()
-    //this.renderAll();
   },
 
   addIngredient: function(){
@@ -34,24 +31,26 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     addToPantry: function(){
       console.log('add to pantry button clicked');
       var ingredientArray = [];
-    var singleIng = this.model.get('name');
-    var checkedIng = this.model.get('#fridge-ingredient-checkbox');
-    if (checkedIng.checked =true){
-    ingredientArray.push(singleIng);
-    } else {console.log('poop')};
-    ingredientArray.appendTo('#pantry-ingredients-containter');
-    },
+      var singleIng = this.model.get('name');
+      var checkedIng = this.model.get('#fridge-ingredient-checkbox');
+      if (checkedIng.checked =true){
+      ingredientArray.push(singleIng);
+      } else {console.log('poop')};
+      ingredientArray.appendTo('#pantry-ingredients-containter');
+     },
 
-  selectIngredient: function(){
-    console.log('select ingredient button clicked');
-    var ingredientArray = [];
-    var singleIng = this.model.get('name');
-    var checkedIng = this.model.get('#fridge-ingredient-checkbox');
-    if (checkedIng.checked =true){
-    ingredientArray.push(singleIng);
-    } else {console.log('poop')};
-    ingredientArray.appendTo('#search-ingredients-containter');
-  },
+
+    selectIngredient: function () {
+      console.log('select ingredient button clicked doooooood');
+      var fridge = $('#fridge-ingredients-list-container');
+      for (var i = 0; i < fridge.children().length; i ++) {
+        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') == true) {
+          var ingredientId = parseInt(fridge.children().eq(i).children().eq(0).attr('data-id'));
+          var movedIngredient = App.fridgeIngredients.findWhere({fridgeIngId: ingredientId});
+          App.searchIngredients.add(movedIngredient);
+        };
+      };
+    },
 
   renderAll: function() {
     $('#fridge-ingredients-list-container').empty();
