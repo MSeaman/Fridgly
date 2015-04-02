@@ -1,6 +1,6 @@
 App.Collections.FridgeIngredients = Backbone.Collection.extend({
 	//this.listenTo(, 'reset')
-	url: '/users/:id/fridge_ingredients',
+	url: function(){ return '/users/' + this.userId + '/fridge_ingredients'},
 	model: App.Models.FridgeIngredient,
 
 	userId: '',
