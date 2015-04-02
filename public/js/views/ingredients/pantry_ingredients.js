@@ -1,6 +1,5 @@
 App.Views.PantryIngredient = Backbone.View.extend({
 
-
 	events: {
 		'click .delete': 'delete',
 		'click .add-ingredient': 'addIngredient',
