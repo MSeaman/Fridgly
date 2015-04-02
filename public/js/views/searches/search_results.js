@@ -5,7 +5,6 @@ App.Views.SearchResults = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
-		debugger
 		this.$el.html(this.template(this.model.toJSON()));
 	}
 
