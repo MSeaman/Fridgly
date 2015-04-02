@@ -52,15 +52,23 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
       };
     },
 
-  renderAll: function() {
-    $('#fridge-ingredients-list-container').empty();
-    this.collection.each(this.renderOne, this)
-  },
+    delete: function(){
+    	this.model.destroy();
+    },
 
-  renderOne: function(ingredient) {
-    var poop = new App.Views.FridgeIngredient({model: ingredient});
-    poop.$el.appendTo($('#fridge-ingredients-list-container'));
-  }
+  	renderAll: function() {
+  	  $('#fridge-ingredients-list-container').empty();
+  	  this.collection.each(this.renderOne, this)
+  	},
+	
+  	renderOne: function(ingredient) {
+  	  var poop = new App.Views.FridgeIngredient({model: ingredient});
+  	  poop.$el.appendTo($('#fridge-ingredients-list-container'));
+  	}
 
 	
 })
+
+
+
+
