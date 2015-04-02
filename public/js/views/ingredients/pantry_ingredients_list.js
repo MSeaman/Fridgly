@@ -5,21 +5,29 @@ App.Views.PantryIngredientList = Backbone.View.extend({
       this.listenTo(this.collection, 'reset', this.renderAll);
       this.listenTo(this.collection, 'add', this.renderOne);
     },
+    
+    el: 'body', 
+
     events: {
       'click .delete': 'delete',
-      'click .add-ingredient': 'addIngredient',
+      'click .add-pantry-ingredient': 'addIngredient',
       'click .add-to-fridge': 'addToFridge'
     },
 
-    el: 'body', 
 
     delete: function(){
       this.model.destroy()
     },
 
     addIngredient: function(){
-      var ingredient = this.$('.ingredient')
-      ingredient.val().appendTo('#pantry-ingredients-container');
+      console.log('clicked');
+      var ingredient = this.$('.ingredient');
+      $.ajax({
+        url: '/users/:id/pantry_ingredients',
+        method: 'POST',
+        data: {name: ingredient}
+      }).done(ingredient.val().appendTo('#pantry-ingredients-container'));
+      
     },
 
     addToFridge: function(){

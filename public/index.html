@@ -54,7 +54,7 @@
 	<div id='pantry-ingredients-container'>
 		<h1>Pantry Ingredients</h1>
 		<input type="text" class="ingredient" placeholder="New Ingredient">
-		<button class="add-ingredient">Add Ingredient</button>
+		<button class="add-pantry-ingredient">Add Ingredient</button>
 		<button class="delete">Remove Ingredient</button>
 		<button class="move-to-fridge">Move to Fridge</button>
 		<div id='pantry-ingredients-list-container'></div>
@@ -69,7 +69,7 @@
 		<h1>Advanced Search Breau</h1>
 	</div>
 		<template id="pantry-ingredients-template">
-			<li class="pantry-ingredient-name" data-id='{{pantryInfId}}'>{{name}}</span>
+			<li class="pantry-ingredient-name" data-id={{pantryIngId}}>{{name}}</span>
 			<input type="checkbox" id ='pantry-ingredient-checkbox' >
 	
 		</template>
