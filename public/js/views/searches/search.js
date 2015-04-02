@@ -1,15 +1,14 @@
 App.Views.Search = Backbone.View.extend({
 
   el: '#search-container',
-	events: {
-		'click .search-button': 'search',
-		'click .advanced-search-button': 'advancedSearch'
-	},
+  events: {
+    'click .search-button': 'search',
+    'click .advanced-search-button': 'advancedSearch'
+  },
 
-	initialize: function(){
+  initialize: function(){
     this.listenTo(this.collection, 'add', this.renderAll);
-    
-	},
+  },
  
   renderAll: function() {
     $('#search-ingredients-container').empty();
@@ -21,7 +20,7 @@ App.Views.Search = Backbone.View.extend({
     searchResultView.$el.appendTo($('#search-ingredients-container'));
   },
   //fix and comment back in for search calls
-	search: function() {
+  search: function() {
     var search = $('#search-container');
       for (var i = 0; i < search.children().length; i ++){
       var ingredientId = search.children().eq(i).children().eq(0).attr('name');
@@ -40,7 +39,7 @@ App.Views.Search = Backbone.View.extend({
     var excludeIngredient = '&excludedIngredient%5B%5D=';
     var allergy = '&allowedAllergy%5B%5D=';
     var diet = '&allowedDiet%5B%5D=';
-    var includeCuisine = '&allowedCusine%5B%5D=';
+    var includeCuisine = '&allowedCuisine%5B%5D=';
     var excludeCuisine = '&excludedCuisine%5B%5D=';
     var includeCourse = '&allowedCourse%5B%5D=';
     var excludeCourse = '&excludedCourse%5B%5D=';
@@ -59,25 +58,14 @@ App.Views.Search = Backbone.View.extend({
     var searchTerms = [];
     var search = $('#search-ingredients-container');
     for (var i = 0; i < search.children().length; i ++){
-
       var ingredientId = parseInt(search.children().eq(i).children().eq(0).attr('data-id'));
       var searchedIngredient = App.searchIngredients.findWhere({fridgeIngId: ingredientId});
-      debugger
       var ingredientUrlFragment = includeIngredient + encodeURI(searchedIngredient.attributes.name).toLowerCase();
-
-
-      
-
-
       searchTerms.push(ingredientUrlFragment);
       };
-      var newSearchTerms = searchTerms.join('');
-      var newUrl = searchRecipesBase + newSearchTerms;
-      debugger
-     /* $.ajax ({
-        url: 
-        method: 'get'
-      })*/
+    var newSearchTerms = searchTerms.join('');
+    var newUrl = searchRecipesBase + newSearchTerms;
+  
   },
 
   showResults: function() {

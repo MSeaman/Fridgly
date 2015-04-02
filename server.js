@@ -80,12 +80,19 @@ app.put('/fridge_ingredients/:id', function(req, res){
     });
 });
 
-app.post('/fridge_ingredients/', function(req, res){
-  Fridge_ingredient
-    .create(req.body)
-    .then(function(newfridge_ingredient){
-      res.send(newFridge_ingredient)
+app.post('/users/:id/fridge_ingredients', function (req, res){
+  console.log('give it a whirl');
+  User
+  .findOne(req.params.id)
+  .then(function (user) {
+    Fridge_ingredient.create(req.body)
+    .then(function(newIngredient) {
+      user.addFridge_ingredient(newIngredient)
+      .then(function () {
+        res.send(newIngredient);
+      });
     });
+  });
 });
 
 app.delete('/fridge_ingredients/:id', function (req, res){
