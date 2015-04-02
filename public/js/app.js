@@ -12,4 +12,7 @@ $(function () {
 	App.fridgeIngredients = new App.Collections.FridgeIngredients;
 	App.fridgeIngredientsListView = new App.Views.FridgeIngredientList({collection: App.fridgeIngredients});
 	//App.fridgeIngredients.fetch();
+	App.searchIngredients = new App.Collections.SearchIngredients;
+	App.searchView = new App.Views.Search({collection: App.searchIngredients});
+
 });
