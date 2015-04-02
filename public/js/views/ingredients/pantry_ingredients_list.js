@@ -1,7 +1,5 @@
 App.Views.PantryIngredientList = Backbone.View.extend({
 
-  
-
   initialize: function() {
     this.listenTo(this.collection, 'reset', this.renderAll);
   },
