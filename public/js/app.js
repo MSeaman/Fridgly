@@ -18,4 +18,8 @@ $(function () {
 	App.searchView = new App.Views.Search({collection: App.searchIngredients});
 	App.recipes = new App.Collections.Recipes;
 	App.recipesListView = new App.Views.Recipes({collection: App.recipes});
+	//App.recipe = new App.Views.Recipe;
+	App.recipeModal = new App.Views.RecipeModal({model: App.recipe});
+	
+
 });
