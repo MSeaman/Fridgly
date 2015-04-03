@@ -68,7 +68,7 @@ app.delete('/users/:id', function(req, res){
 
 app.get('/fridge_ingredients', function(req, res){
   Fridge_ingredient.findAll().then(function(fridge_ingredients){
-    res.send(frige_ingredients);
+    res.send(fridge_ingredients);
   });
 });
 
