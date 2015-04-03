@@ -15,9 +15,11 @@
 	<script src='js/models/fridge_ingredient.js'></script>
 	<script src='js/models/pantry_ingredient.js'></script>
 	<script src="js/models/user.js"></script>
+	<script src="js/models/recipe.js"></script>
 	<script src='js/collections/fridge_ingredients.js'></script>
 	<script src='js/collections/pantry_ingredients.js'></script>
 	<script src='js/collections/search_ingredients.js'></script>
+	<script src='js/collections/recipes.js'></script>
 	<script src='js/collections/users.js'></script>
 	<script src='js/views/users/create_user.js'></script>
 	<script src='js/views/users/create_user.js'></script>
@@ -26,6 +28,8 @@
 	<script src='js/views/searches/advanced_search.js'></script>
 	<script src='js/views/searches/search_results.js'></script>
 	<script src='js/views/searches/modal_view.js'></script>
+	<script src='js/views/searches/recipe.js'></script>
+	<script src='js/views/searches/recipe_list.js'></script>
 	<script src='js/views/ingredients/fridge_ingredients.js'></script>
 	<script src='js/views/ingredients/fridge_ingredients_list.js'></script>
 	<script src='js/views/ingredients/pantry_ingredients.js'></script>
@@ -64,6 +68,7 @@
 		<div id='search-ingredients-container'></div>
 		<button class='search-button'>Search For Recipes</button>
 		<button class='advanced-search-button'>Advanced Search</button>
+		<div id = 'recipe-results-container'></div>
 	</div>
 	<div id='advanced-search-container'>
 		<h1>Advanced Search Breau</h1>
@@ -85,11 +90,12 @@
 		<li class="create-user">Create User</li>
 		<li class="edit-user">Edit Current User</li>
 	</template>
-
-
-
-
-
+	
+	<template id='recipe-list-item-template'>
+		<li class='recipe-name'>{{name}}</li>
+		<li class='ingredients'>{{ingredients}}</li
+		<li class='recipe-id'>{{recipeId}}</li>			
+	</template>
 
 
 
