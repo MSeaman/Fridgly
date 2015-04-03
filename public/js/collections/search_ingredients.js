@@ -1,4 +1,4 @@
-App.Collections.SearchIngredients = Backbone.Collection.extend({
+ App.Collections.SearchIngredients = Backbone.Collection.extend({
 
 	model: App.Models.FridgeIngredient,
 
