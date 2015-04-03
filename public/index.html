@@ -97,9 +97,13 @@
 		<li class='ingredients'>{{ingredients}}</li
 		<li class='recipe-id'>{{recipeId}}</li>			
 	</template>
-
-
-
+	
+	<template id='recipe-modal'>
+		<div id='show-recipe'>
+			<iframe src="{{recipeUrl}}" frameborder="0"></iframe>
+			<h2 id='close'>CLOSE</h2>
+		</div>
+	</template>
 
 
 
