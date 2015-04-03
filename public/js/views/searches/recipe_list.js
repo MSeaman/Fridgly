@@ -1,4 +1,4 @@
-App.Models.Recipes = Backbone.Model.extend({
+App.Views.Recipes = Backbone.View.extend({
 el: '#search-container',
 
 initialize: function() {
@@ -11,7 +11,8 @@ render: function() {
   },
 
   renderOne: function(recipe) {
-    var receipeView = new App.Views.Recipe({ model: recipe });
+    var recipeView = new App.Views.Recipe({ model: recipe });
+    debugger
     recipeView.$el.appendTo($('#recipe-results-container'));
   }
 
