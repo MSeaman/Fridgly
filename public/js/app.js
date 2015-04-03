@@ -17,5 +17,5 @@ $(function () {
 	App.searchIngredients = new App.Collections.SearchIngredients;
 	App.searchView = new App.Views.Search({collection: App.searchIngredients});
 	App.recipes = new App.Collections.Recipes;
-	App.recipesListView = App.Views.Recipes({collection: App.recipes});
+	App.recipesListView = new App.Views.Recipes({collection: App.recipes});
 });
