@@ -2,11 +2,12 @@ App.Collections.PantryIngredients = Backbone.Collection.extend({
 	//this.listenTo(, 'reset')
 	url: function(){ return '/users/' + this.userId + '/pantry_ingredients'},
 	model: App.Models.PantryIngredient,
+	
 	user: '',
 
 	getPantryIngredients: function () {
 		//var userId = get id from user selected in drop down
-		console.log('getting patry ingredients');
+		console.log('getting pantry ingredients');
 		$.ajax({
 			url: '/users/' + this.userId + '/pantry_ingredients',
 			method: 'get'
