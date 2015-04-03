@@ -5,6 +5,8 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     this.listenTo(this.collection, 'reset', this.renderAll);
     this.listenTo(this.collection, 'add', this.renderOne);
     this.listenTo(this.collection, 'all', this.renderAll);
+    
+    this.listenTo(this.collection, 'remove', this.delete);
 
   },
 
@@ -29,16 +31,22 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
  	  console.log('add ingredient button clicked brough');
  	  var ingredientName = $('#add-fridge-ingredient-input').val();
  	  this.collection.create({name: ingredientName});
+    // App.fridgeIngredients.userId = $('#userDropDown').val();
+    // App.fridgeIngredients.getFridgeIngredients();
+
  	  },
 
     addToPantry: function(){
       console.log('select pantry button clicked doooooood');
       var fridge = $('#fridge-ingredients-list-container');
       for (var i = 0; i < fridge.children().length; i ++) {
-        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') == true) {
+        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {
           var ingredientId = parseInt(fridge.children().eq(i).children().eq(0).attr('data-id'));
           var movedIngredient = App.fridgeIngredients.findWhere({fridgeIngId: ingredientId});
-          App.pantryIngredients.add(movedIngredient);
+          App.pantryIngredients.create({
+            name:movedIngredient.attributes.name
+          });
+          App.fridgeIngredients.remove(movedIngredient);
         };
       };
      },
@@ -48,7 +56,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
       console.log('select ingredient button clicked doooooood');
       var fridge = $('#fridge-ingredients-list-container');
       for (var i = 0; i < fridge.children().length; i ++) {
-        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') == true) {
+        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {
           var ingredientId = parseInt(fridge.children().eq(i).children().eq(0).attr('data-id'));
           var movedIngredient = App.fridgeIngredients.findWhere({fridgeIngId: ingredientId});
           App.searchIngredients.add(movedIngredient);
@@ -60,7 +68,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     	console.log('delete button clicked doooooood');
       	var fridge = $('#fridge-ingredients-list-container');
       	for (var i = 0; i < fridge.children().length; i ++) {
-        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') == true) {
+        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {
           var ingredientId = parseInt(fridge.children().eq(i).children().eq(0).attr('data-id'));
           var movedIngredient = App.fridgeIngredients.findWhere({fridgeIngId: ingredientId});
           $.ajax({

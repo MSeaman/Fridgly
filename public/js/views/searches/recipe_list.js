@@ -12,7 +12,6 @@ render: function() {
 
   renderOne: function(recipe) {
     var recipeView = new App.Views.Recipe({ model: recipe });
-    debugger
     recipeView.$el.appendTo($('#recipe-results-container'));
   }
 
