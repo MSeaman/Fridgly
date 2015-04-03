@@ -1,21 +1,29 @@
-App.Views.Recip = Backbone.View.extend({
-  initialize: function() {
-    this.template = Handlebars.compile($('#recipe-list-item-template').html());
-    this.render();
-  },
-  events: {
-    'click': 'showModal'
-  },
-  render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
-  },
-  showModal: function() {
-    // Begins sequence of events to get full movie details
-    // and who the resulting modal.  
-    App.movieModalView.setMovie(this.model);
-    App.movieModalView.show();
-    var path = 'movies/' + this.model.get('imdbID');
-    path += '/' + encodeURI(App.moviesView.currentQuery);
-    App.movieRouter.navigate(path);
-  }
+App.Views.RecipeModal = Backbone.View.extend({
+
+el: '#recipe-results-container',
+
+model: App.Models.Recipe,
+
+initialize: function () {
+  console.log('modal view created brough');
+  this.template = Handlebars.compile($('#recipe-modal').html());
+  //this.listenTo(this.model, 'change', this.render);
+},
+
+events: {
+  'click': 'hideModal'
+},
+
+render: function () {
+  this.$el.html(this.template(thisModel.toJSON()));
+},
+
+showModal: function () {
+  this.$el.show();
+},
+
+hideModal: function () {
+  this.$el.hide();
+}
+
 });
