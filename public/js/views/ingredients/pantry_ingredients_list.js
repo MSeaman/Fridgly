@@ -16,7 +16,18 @@ App.Views.PantryIngredientList = Backbone.View.extend({
 
 
     delete: function(){
-      this.model.destroy()
+      console.log('delete button clicked doooooood');
+        var pantry = $('#pantry-ingredients-list-container');
+        for (var i = 0; i < pantry.children().length; i ++) {
+        if (pantry.children().eq(i).children().eq(0).children().eq(0).is(':checked') == true) {
+          var ingredientId = parseInt(pantry.children().eq(i).children().eq(0).attr('data-id'));
+          var movedIngredient = App.pantryIngredients.findWhere({PantryIngId: ingredientId});
+          $.ajax({
+            url: '/pantry_ingredients/' + ingredientId,
+            method: 'DELETE'
+          }) .done(this.collection.remove(movedIngredient))
+         };
+     };  
     },
 
     addIngredient: function(){

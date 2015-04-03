@@ -1,4 +1,4 @@
-App.Models.Recipes = Backbone.Model.extend({
+App.Views.Recipes = Backbone.View.extend({
 el: '#search-container',
 
 initialize: function() {
