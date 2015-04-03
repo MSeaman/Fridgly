@@ -4,6 +4,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     console.log('new fridge ingredients view created brough');
     this.listenTo(this.collection, 'reset', this.renderAll);
     this.listenTo(this.collection, 'add', this.renderOne);
+    this.listenTo(this.collection, 'all', this.renderAll);
 
   },
 
@@ -11,7 +12,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
 
   events: {
     'click .add-to-search': 'selectIngredient',
-    'click .delete': 'delete',
+    'click .delete-fridge-ingredient': 'delete',
     'click .add-ingredient': 'addIngredient',
     'click .move-to-pantry': 'addToPantry',
     'click .select-user':'setUser',
@@ -56,7 +57,18 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     },
 
     delete: function(){
-    	this.model.destroy();
+    	console.log('delete button clicked doooooood');
+      	var fridge = $('#fridge-ingredients-list-container');
+      	for (var i = 0; i < fridge.children().length; i ++) {
+        if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') == true) {
+          var ingredientId = parseInt(fridge.children().eq(i).children().eq(0).attr('data-id'));
+          var movedIngredient = App.fridgeIngredients.findWhere({fridgeIngId: ingredientId});
+          $.ajax({
+          	url: '/fridge_ingredients/' + ingredientId,
+          	method: 'DELETE'
+          }) .done(this.collection.remove(movedIngredient))
+      	 };
+	   };      
     },
 
   	renderAll: function() {
