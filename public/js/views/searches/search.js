@@ -19,21 +19,12 @@ App.Views.Search = Backbone.View.extend({
     var searchResultView = new App.Views.FridgeIngredient({model: ingredient});
     searchResultView.$el.appendTo($('#search-ingredients-container'));
   },
-  //fix and comment back in for search calls
-  search: function() {
-    var search = $('#search-container');
-      for (var i = 0; i < search.children().length; i ++){
-      var ingredientId = search.children().eq(i).children().eq(0).attr('name');
-      }
-      debugger
-    var apiRootKey = 'http://api.yummly.com/v1/api/recipes?_app_id=66a10d93&_app_key=8bfd076a86bb08e4c703da382368127c';
-    $.ajax({
-      url: apiRootKey + userInput,
-      method: 'GET'
-    }).done(this.showResults.bind(this));
-  },
 
   search: function () {
+    App.recipes.search();
+  },
+
+  /*search: function () {
     console.log('search button has been clicked brough');
     var includeIngredient = '&allowedIngredient%5B%5D=';
     var excludeIngredient = '&excludedIngredient%5B%5D=';
@@ -50,10 +41,10 @@ App.Views.Search = Backbone.View.extend({
     var apiKey = '?_app_id=66a10d93&_app_key=8bfd076a86bb08e4c703da382368127c';
 
 
-   // Search Recipes = base + apiKey + Options ( such as - includedIngredient (lowercase url friendly))
+    // Search Recipes = base + apiKey + Options ( such as - includedIngredient (lowercase url friendly))
     var searchRecipesBase = 'http://api.yummly.com/v1/api/recipes' + apiKey;
 
-     // Get Recipe = base + Selected Recipe ID string + apiKey
+    // Get Recipe = base + Selected Recipe ID string + apiKey
     var getRecipeBase = 'http://api.yummly.com/v1/api/recipe';
     var searchTerms = [];
     var search = $('#search-ingredients-container');
@@ -65,6 +56,7 @@ App.Views.Search = Backbone.View.extend({
       };
     var newSearchTerms = searchTerms.join('');
     var newUrl = searchRecipesBase + newSearchTerms;
+    console.log(newUrl);
   
   },
 
@@ -72,7 +64,7 @@ App.Views.Search = Backbone.View.extend({
     App.searchResults.model = this.model;
     App.searchResults.render();
     App.searchResults.showResults();
-  },
+  },*/
 
   advancedSearch: function(){
 
