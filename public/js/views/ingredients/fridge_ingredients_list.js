@@ -36,7 +36,6 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     };
   },
 
-
   setUser: function() {
     App.fridgeIngredients.userId = $('#userDropDown').val();
     App.pantryIngredients.userId = $('#userDropDown').val();

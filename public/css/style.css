@@ -14,17 +14,20 @@ h2 {
 
 #fridge-ingredients-container {
   background: url(http://www.clker.com/cliparts/w/d/g/L/n/8/fridge.svg);
-  background-size: 100%;
+  background-size: cover;
   position: absolute;
-  top: 25px;
-  left: 25px;
-  height: 500px;
-  width: 250px;
+  top: 50px;
+  left: 50px;
+  height: 600px;
+  width: 350px;
 }
 
 #fridge-ingredients-list-container {
-  position: absolute;
+  position: relative;
+  text-align: center;
+  top: 10px;
   z-index: 1;
+  font-size: 20px;
 }
 
 #search-container {
@@ -36,33 +39,38 @@ h2 {
 }
 
 #search-ingredients-container {
-  
+
 }
 
 #recipe-results-container {
+  border-style: solid;
+  border-width: 1px;
   width: 600px;
   height: 600px;
 }
 
 #pantry-ingredients-container {
-  top:25px;
+  background: url(http://images.ohsheglows.com/wp-content/uploads/2010/09/20100911IMG_28482_thumb.jpg);
+  background-size: cover;
   position: absolute;
-  right:25px;
-  height: 500px;
-  width: 250px;
+  top:50px;
+  right:50px;
+  height: 600px;
+  width: 350px;
+}
+
+#pantry-ingredients-list-container {
+  position: relative;
+  text-align: center;
+  top: 10px;
+  font-size: 20px;
 }
 
 #users-menu {
   position: absolute;
   top: 5px;
-  right: 30%;
+  right: 40%;
 }
-
-
-
-
-
-
 
 #recipe-modal {
   display: none; /* ensures it’s invisible until it’s called */

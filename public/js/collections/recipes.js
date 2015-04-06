@@ -31,12 +31,12 @@ App.Collections.Recipes = Backbone.Collection.extend({
   	  var ingredientUrlFragment = includeIngredient + encodeURI(searchedIngredient.attributes.name).toLowerCase();
   	  searchTerms.push(ingredientUrlFragment);
   	}
-    // for (var i = 0; i < pantrySearch.children().length; i++) {
-    //   var pIngredientId = parseInt(pantrySearch.children().eq(i).children().eq(0).attr('data-id'));
-    //   var pSearchedIngredient = App.pantryIngredients.findWhere({pantryIngId: pIngredientId});
-    //   var pIngredientUrlFragment = includeIngredient + encodeURI(pSearchedIngredient.attributes.name).toLowerCase();
-    //   searchTerms.push(pIngredientUrlFragment);
-    // }
+    for (var i = 0; i < pantrySearch.children().length; i++) {
+      var pIngredientId = parseInt(pantrySearch.children().eq(i).children().eq(0).attr('data-id'));
+      var pSearchedIngredient = App.pantryIngredients.findWhere({pantryIngId: pIngredientId});
+      var pIngredientUrlFragment = includeIngredient + encodeURI(pSearchedIngredient.attributes.name).toLowerCase();
+      searchTerms.push(pIngredientUrlFragment);
+    }
     // for (var i = 0; i < searchTerms.length; i++) {
     //   var regex = i  + '?';
     //   searchTerms.push(regex);
