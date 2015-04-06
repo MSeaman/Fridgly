@@ -47,7 +47,6 @@ App.Collections.Recipes = Backbone.Collection.extend({
   addRecipes: function (recipes) {
   	var results = recipes.matches;
   	App.recipes.reset();
-  	//debugger
   	for (var i = 0; i < recipes.matches.length; i++) {
   		App.recipes.create({
   			name: recipes.matches[i].recipeName,
