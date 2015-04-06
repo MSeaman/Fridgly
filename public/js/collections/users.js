@@ -1,6 +1,8 @@
 App.Collections.Users = Backbone.Collection.extend({
+	
 	//this.listenTo(, 'reset')
 	url: '/users',
+
 	model: App.Models.User,
 
 	getUsers: function () {
@@ -8,17 +10,18 @@ App.Collections.Users = Backbone.Collection.extend({
 		$.ajax({
 			url: '/users',
 			method: 'get'
-		})
-		.done(this.addUser)
+		}).done(this.addUser)
+
 	},
+
 	addUser: function (users) {
 		console.log('got user');
 		App.users.reset();
 		users.forEach(function(users) {
 			App.users.add({
 				name: user.name,
-
 			});
-		})
+		});
 	}
+
 });
