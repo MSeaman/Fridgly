@@ -5,10 +5,16 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 30;
+  font-size: 60px;
+}
+
+h2 {
+  text-align: center;
 }
 
 #fridge-ingredients-container {
+  background: url(http://www.clker.com/cliparts/w/d/g/L/n/8/fridge.svg);
+  background-size: 100%;
   position: absolute;
   top: 25px;
   left: 25px;
@@ -16,22 +22,26 @@ h1 {
   width: 250px;
 }
 
-#fridge-ingredients-container .fridge-pic{
-position: relative;
-height:100%;
-width: 100%;
-z-index: auto;
-}
-
 #fridge-ingredients-list-container {
   position: absolute;
   z-index: 1;
-  top #fridge-ingredients-container: 0;
 }
 
 #search-container {
   position: absolute;
-  left: 39%;
+  left: 29%;
+  border-radius: 1px;
+  /*height: 600px;*/
+  /*width: 600px;*/
+}
+
+#search-ingredients-container {
+  
+}
+
+#recipe-results-container {
+  width: 600px;
+  height: 600px;
 }
 
 #pantry-ingredients-container {
