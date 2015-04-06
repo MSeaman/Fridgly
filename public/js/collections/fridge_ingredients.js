@@ -1,6 +1,8 @@
 App.Collections.FridgeIngredients = Backbone.Collection.extend({
+
 	//this.listenTo(, 'reset')
 	url: function(){ return '/users/' + this.userId + '/fridge_ingredients'},
+
 	model: App.Models.FridgeIngredient,
 
 	userId: '',
@@ -10,9 +12,9 @@ App.Collections.FridgeIngredients = Backbone.Collection.extend({
 		$.ajax({
 			url: '/users/' + this.userId + '/fridge_ingredients',
 			method: 'get'
-		})
-		.done(this.addFridgeIngredient)
+		}).done(this.addFridgeIngredient)
 	},
+	
 	addFridgeIngredient: function (fridgeIngredients) {
 		console.log('got fridge ingredients');
 		App.fridgeIngredients.reset();

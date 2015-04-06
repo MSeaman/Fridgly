@@ -1,6 +1,7 @@
 App.Views.Search = Backbone.View.extend({
 
   el: '#search-container',
+
   events: {
     'click .search-button': 'search',
     'click .advanced-search-button': 'advancedSearch',
@@ -28,14 +29,15 @@ App.Views.Search = Backbone.View.extend({
   reset: function(){
     console.log('reset button clicked');
     App.searchIngredients.forEach(function(ingredient){
-    App.searchIngredients.remove(ingredient);
-    $('#search-ingredients-container').empty();
+      App.searchIngredients.remove(ingredient);
+      $('#search-ingredients-container').empty();
     });
-    },
+  },
 
   advancedSearch: function(){
 
   }
+
 });
 
 

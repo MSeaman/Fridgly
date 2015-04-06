@@ -1,6 +1,55 @@
 body {
-	background-color: lightgrey;
+	background: url(https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/19/199/199814/iuofjgenwsaxmjokhhpnwmuamrshk0al5nfxhjghon9uaudbzdecnih2m48ux2yu-o.jpg?1412531086) no-repeat center fixed;
+ background-size: cover;
 }
+
+h1 {
+  text-align: center;
+  font-size: 30;
+}
+
+#fridge-ingredients-container {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  height: 500px;
+  width: 250px;
+}
+
+#fridge-ingredients-container .fridge-pic{
+position: relative;
+height:100%;
+width: 100%;
+z-index: auto;
+}
+
+#fridge-ingredients-list-container {
+  position: absolute;
+  z-index: 1;
+  top #fridge-ingredients-container: 0;
+}
+
+#search-container {
+  position: absolute;
+  left: 39%;
+}
+
+#pantry-ingredients-container {
+  top:25px;
+  position: absolute;
+  right:25px;
+  height: 500px;
+  width: 250px;
+}
+
+#users-menu {
+  position: absolute;
+  top: 5px;
+  right: 30%;
+}
+
+
+
 
 
 
