@@ -68,10 +68,6 @@
 	<div id='search-container'>
 		<h2>Search, Brough</h1>
 		<div id='search-ingredients-container'></div>
-		<button class='search-button'>Search For Recipes</button>
-		<button class='advanced-search-button'>Advanced Search</button>
-		<button class='reset-search-button'>Reset Search</button>
-		<div id = 'recipe-results-container'></div>
 	<div id='advanced-search-container'>
 		<h3>Advanced Search Breau</h1>
 		<label for="spicy-level-min">Spicy Level Min</label>
@@ -99,6 +95,10 @@
 		<label for="meaty-level-max">Meaty Level Max</label>
 		<input type=range min=0 max=1 value=1 id='meaty-level-max'step=.05 >
 	</div>
+		<button class='search-button'>Search For Recipes</button>
+		<button class='advanced-search-button'>Advanced Search</button>
+		<button class='reset-search-button'>Reset Search</button>
+		<div id = 'recipe-results-container'></div>
 	</div>
 		<template id="pantry-ingredients-template">
 			<li class="pantry-ingredient-name" data-id={{pantryIngId}}>{{name}}</span>
