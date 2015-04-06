@@ -15,8 +15,7 @@ if (process.env.HEROKU_POSTGRESQL_GOLD_URL) {
     })
   } else {
     var sequelize = new Sequelize(config.database, config.username, config.password, config);
-  }
-var sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 var db        = {};
 
 fs
