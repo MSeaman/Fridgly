@@ -6,6 +6,8 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     this.listenTo(this.collection, 'create', this.save);
     this.listenTo(this.collection, 'all', this.renderAll);
     this.listenTo(this.collection, 'remove', this.delete);
+
+    this.getUsers();
   },
 
   el: 'body',
@@ -17,6 +19,23 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     'click .move-to-pantry': 'addToPantry',
     'click .select-user':'setUser',
   },
+
+  getUsers: function () {
+    $.ajax({
+      url: '/users',
+      method: 'get'
+    }).done(this.populateUsers)
+  },
+
+  populateUsers: function (users) {
+    for (var i = 0; i < users.length; i++) {
+      var userName = users[i].name;
+      var userId = users[i].id;
+      var dropDownItem = $('<option>').attr('value', userId).html(userName);
+      $('#userDropDown').append(dropDownItem);
+    };
+  },
+
 
   setUser: function() {
     App.fridgeIngredients.userId = $('#userDropDown').val();

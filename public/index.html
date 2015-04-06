@@ -43,25 +43,22 @@
 	<h1>Fridgly</h1>
 	<div id="users-menu">
 		<select name="userDropDown" id="userDropDown">
-			<option id="userDropDownValue" value="1">1</option>
-			<option id="userDropDownValue" value="2">2</option>
 		</select>
 		<button class='select-user'>Select User</button>
 	</div>	
 
 	<div id='fridge-ingredients-container'>
-		<h1>Fridge Ingredients</h1>
+		<h2>Fridge Ingredients</h1>
 		<input id="add-fridge-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
 		<button class="add-ingredient">Add Ingredient</button>
 		<button class="delete-fridge-ingredient">Remove Ingredient</button>
 		<button class="add-to-search">Add to Search</button>
 		<button class="move-to-pantry">Move to Pantry</button>
-		<img class="fridge-pic" src="http://www.clker.com/cliparts/w/d/g/L/n/8/fridge.svg">
 		<div id='fridge-ingredients-list-container'></div>
 	</div>
 
 	<div id='pantry-ingredients-container'>
-		<h1>Pantry Ingredients</h1>
+		<h2>Pantry Ingredients</h1>
 		<input id="add-pantry-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
 		<button class="add-pantry-ingredient">Add Ingredient</button>
 		<button class="delete-pantry-ingredient">Remove Ingredient</button>
@@ -69,14 +66,38 @@
 		<div id='pantry-ingredients-list-container'></div>
 	</div>
 	<div id='search-container'>
-		<h1>Search, Brough</h1>
+		<h2>Search, Brough</h1>
 		<div id='search-ingredients-container'></div>
 		<button class='search-button'>Search For Recipes</button>
 		<button class='advanced-search-button'>Advanced Search</button>
 		<button class='reset-search-button'>Reset Search</button>
 		<div id = 'recipe-results-container'></div>
 	<div id='advanced-search-container'>
-		<h1>Advanced Search Breau</h1>
+		<h3>Advanced Search Breau</h1>
+		<label for="spicy-level-min">Spicy Level Min</label>
+		<input type=range min=0 max=1 value=0 id='spicy-level-min'step=.05 >
+		<label for="spicy-level-max">Spicy Level Max</label>
+		<input type=range min=0 max=1 value=1 id='spicy-level-max'step=.05 ><br>
+		<label for="salty-level-min">Salty Level Min</label>
+		<input type=range min=0 max=1 value=0 id='salty-level-min'step=.05 >
+		<label for="salty-level-max">Salty Level Max</label>
+		<input type=range min=0 max=1 value=1 id='salty-level-max'step=.05 ><br>
+		<label for="sour-level-min">Sour Level Min</label>
+		<input type=range min=0 max=1 value=0 id='sour-level-min'step=.05 >
+		<label for="sour-level-max">Sour Level Max</label>
+		<input type=range min=0 max=1 value=1 id='sour-level-max'step=.05 ><br>
+		<label for="sweet-level-min">Sweet Level Min</label>
+		<input type=range min=0 max=1 value=0 id='sweet-level-min'step=.05 >
+		<label for="sweet-level-max">Sweet Level Max</label>
+		<input type=range min=0 max=1 value=1 id='sweet-level-max'step=.05 ><br>
+		<label for="bitter-level-min">Bitter Level Min</label>
+		<input type=range min=0 max=1 value=0 id='bitter-level-min'step=.05 >
+		<label for="bitter-level-max">Bitter Level Max</label>
+		<input type=range min=0 max=1 value=1 id='bitter-level-max'step=.05 ><br>
+		<label for="meaty-level-min">Meaty Level Min</label>
+		<input type=range min=0 max=1 value=0 id='meaty-level-min'step=.05 >
+		<label for="meaty-level-max">Meaty Level Max</label>
+		<input type=range min=0 max=1 value=1 id='meaty-level-max'step=.05 >
 	</div>
 	</div>
 		<template id="pantry-ingredients-template">
@@ -91,7 +112,7 @@
 		</template>
 
 	<template id="users-template">
-		<h1>Users</h1>
+		<h4>Users</h1>
 		<li class="current-user" data-id ='{{id}}'>{{name}}</li>
 		<li class="create-user">Create User</li>
 		<li class="edit-user">Edit Current User</li>
