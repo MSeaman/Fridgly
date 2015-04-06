@@ -3,12 +3,18 @@
 <head>
 
   <meta charset="UTF-8">
+<<<<<<< HEAD
   <title>Fridgly Broooo</title>
+=======
+  <title>Fridgly</title>
+>>>>>>> 79fce78e0a06d5c21b7730bd7056db7f63a65da0
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.14/backbone.localStorage-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+
+
 
 	<link rel="stylesheet" href="css/style.css">
 	<script src='js/app.js'></script>
@@ -38,11 +44,22 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	<h1>Fridgly, Brough</h1>
 	<select name="userDropDown" id="userDropDown">
 		
 	</select>
 	<button class='select-user'>Select User</button>
+=======
+	<h1>Fridgly</h1>
+	<div id="users-menu">
+		<select name="userDropDown" id="userDropDown">
+			<option id="userDropDownValue" value="1">1</option>
+			<option id="userDropDownValue" value="2">2</option>
+		</select>
+		<button class='select-user'>Select User</button>
+	</div>	
+>>>>>>> 79fce78e0a06d5c21b7730bd7056db7f63a65da0
 
 	<div id='fridge-ingredients-container'>
 		<h1>Fridge Ingredients</h1>
@@ -51,6 +68,7 @@
 		<button class="delete-fridge-ingredient">Remove Ingredient</button>
 		<button class="add-to-search">Add to Search</button>
 		<button class="move-to-pantry">Move to Pantry</button>
+		<img class="fridge-pic" src="http://www.clker.com/cliparts/w/d/g/L/n/8/fridge.svg">
 		<div id='fridge-ingredients-list-container'></div>
 	</div>
 
@@ -69,7 +87,6 @@
 		<button class='advanced-search-button'>Advanced Search</button>
 		<button class='reset-search-button'>Reset Search</button>
 		<div id = 'recipe-results-container'></div>
-	</div>
 	<div id='advanced-search-container'>
 		<h1>Advanced Search Breau</h1>
 		<label for="spicy-level-min">Spicy Level Min</label>
@@ -98,6 +115,7 @@
 		<input type=range min=0 max=1 value=1 id='meaty-level-max'step=.05 >
 		
 	</div>
+	</div>
 		<template id="pantry-ingredients-template">
 			<li class="pantry-ingredient-name" data-id={{pantryIngId}}>{{name}}</span>
 			<input type="checkbox" id ='pantry-ingredient-checkbox' >
@@ -124,7 +142,10 @@
 	
 	<template id='recipe-modal'>
 		<div id='show-recipe'>
-			<iframe src="{{recipeUrl}}" frameborder="0"></iframe>
+			<iframe src="{{recipeUrl}}" frameborder="0" allowfullscreen></iframe>
+			<script type="text/javascript"> $(document).ready(function () {$("iframe").width(600);
+        		$("iframe").height(600);});
+</script>
 			<h2 id='close'>CLOSE</h2>
 		</div>
 	</template>
