@@ -19,6 +19,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     'click .add-ingredient': 'addIngredient',
     'click .move-to-pantry': 'addToPantry',
     'click .select-user':'setUser',
+    'click .search-oldest': 'searchOldest'
   },
 
   getUsers: function () {
@@ -44,6 +45,20 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     App.pantryIngredients.getPantryIngredients();
   },
 
+  searchOldest: function () {
+    App.searchIngredients.reset();
+    $.ajax({
+      url: '/users/' + App.fridgeIngredients.userId + '/fridge_ingredients',
+      method: 'get'
+    }).done(function(ingredients) {
+      for ( var i = 0; i < $('#oldestNumber').val(); i ++) {
+        var ingredientId = ingredients[i].id;
+        var movedIngredient = App.fridgeIngredients.findWhere({fridgeIngId: ingredientId});
+        App.searchIngredients.add(movedIngredient);
+      }
+    })
+  },
+
  	addIngredient: function(){
  	  console.log('add ingredient button clicked brough');
  	  var ingredientName = $('#add-fridge-ingredient-input').val();
@@ -64,9 +79,8 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
         App.pantryIngredients.create({
           name:movedIngredient.attributes.name
         });
-        // App.fridgeIngredients.remove(movedIngredient);
-      }
-    }
+      };
+    };
   },
 
 
@@ -103,8 +117,8 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
 	},
 
 	renderOne: function(ingredient) {
-	  var poop = new App.Views.FridgeIngredient({model: ingredient});
-	  poop.$el.appendTo($('#fridge-ingredients-list-container'));
+	  var fridgeListItem = new App.Views.FridgeIngredient({model: ingredient});
+	  fridgeListItem.$el.appendTo($('#fridge-ingredients-list-container'));
 	}
 
 });
