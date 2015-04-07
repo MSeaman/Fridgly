@@ -57,74 +57,66 @@ App.Collections.Recipes = Backbone.Collection.extend({
 			for(var i=0; i<fridge.length; i++)
 				fridgePull.push(fridge[i].name.toLowerCase())
 		})
-
 				$.ajax({
 					url:'/users/' + App.fridgeIngredients.userId + '/pantry_ingredients',
 					method: 'GET'
 				}).done(function(pantry){
 					for(var i=0; i<pantry.length; i++)
 					pantryPull.push(pantry[i].name.toLowerCase())
-//					debugger
 				}).done(function(){
 						localIngredients = fridgePull.concat(pantryPull)
 						localIngredients.sort(function (a, b){
 							return b.length - a.length;
 						})
-//						console.log(localIngredients)
-
-		}).done(function() {
-      for (var j=0; j<results.length; j++){
-		    var foundIng = []
-				var missing = []
-//				debugger
-        var recipeIng = results[j].ingredients
-
-				for(var m=0; m<recipeIng.length; m++) {
-					missing.push(recipeIng[m])
-				}
-
-				for (var i=0; i<localIngredients.length; i++) {
-					var localItem = localIngredients[i]+'?';
-					var searchItem = new RegExp(localItem, 'i');
-
-					for( var h = 0; h < recipeIng.length; h++) {
-						if (searchItem.test(recipeIng[h])) {
-							console.log(recipeIng[h])
-				  		foundIng.push(h)
-						}
-					}
-	      }
-		   console.log(foundIng)
-        foundIng.sort()
-        for(var k = foundIng.length-1; k >= 0; k--) {
-					foundIng[k]
-          missing.splice(foundIng[k], 1)
-				}
-       results[j].missingIng = missing
-			console.log(missing)
-		}
-}).done(function() {
-  	App.recipes.reset();
-		var order = [];
-  	for (var i = 0; i < recipes.matches.length; i++) {
-			var holderArray = []
-			holderArray.push(recipes.matches[i].missingIng.length)
-			holderArray.push(i)
-		 	order.push(holderArray)
-		}
-		order.sort(function (a, b) {
-			var x=a[0];
-			var y=b[0];
-			return(x-y);
-		})
-		for (var i = 0; i < 10; i++) {
-			lowestId = order[i][1]
-	  	App.recipes.create({
-	  		name: recipes.matches[lowestId].recipeName,
-	  		ingredients: recipes.matches[lowestId].ingredients,
-	  		recipeId: recipes.matches[lowestId].id,
-				missingIng: recipes.matches[lowestId].missingIng
-	  		});
+      		}).done(function() {
+            for (var j=0; j<results.length; j++){
+      		    var foundIng = []
+      				var missing = []
+              var recipeIng = results[j].ingredients
+      				for(var m=0; m<recipeIng.length; m++) {
+      					missing.push(recipeIng[m])
+      				}
+      				for (var i=0; i<localIngredients.length; i++) {
+      					var localItem = localIngredients[i]+'?';
+      					var searchItem = new RegExp(localItem, 'i');
+      					for( var h = 0; h < recipeIng.length; h++) {
+      						if (searchItem.test(recipeIng[h])) {
+      							console.log(recipeIng[h])
+      				  		foundIng.push(h)
+      						}
+      					}
+      	      }
+      		   console.log(foundIng)
+              foundIng.sort()
+              for(var k = foundIng.length-1; k >= 0; k--) {
+      					foundIng[k]
+                missing.splice(foundIng[k], 1)
+      				}
+             results[j].missingIng = missing
+      			console.log(missing)
+      		}
+      }).done(function() {
+        	App.recipes.reset();
+      		var order = [];
+        	for (var i = 0; i < recipes.matches.length; i++) {
+      			var holderArray = []
+      			holderArray.push(recipes.matches[i].missingIng.length)
+      			holderArray.push(i)
+      		 	order.push(holderArray)
+      		}
+      		order.sort(function (a, b) {
+      			var x=a[0];
+      			var y=b[0];
+      			return(x-y);
+      		})
+      		for (var i = 0; i < 20; i++) {
+      			lowestId = order[i][1]
+      	  	App.recipes.create({
+      	  		name: recipes.matches[lowestId].recipeName,
+      	  		ingredients: recipes.matches[lowestId].ingredients,
+      	  		recipeId: recipes.matches[lowestId].id,
+      				missingIng: recipes.matches[lowestId].missingIng
+      	  		});
       }
   })
   }
