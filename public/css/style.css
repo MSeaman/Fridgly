@@ -6,28 +6,63 @@ body {
 h1 {
   text-align: center;
   font-size: 60px;
+  font-family: Didot bold;
 }
 
 h2 {
   text-align: center;
+  font-family: Didot italic;
+}
+button {
+  color: #900;
+  background: lightgrey;
+  font-weight: bold;
+  border-radius:6px;
+  font-family: 'Oswald';
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 3px double #FC6;
+  border-top-color: #FC9;
+  border-left-color: #FC9;
+}
+
+button:hover {
+  color:#f00;
+  box-shadow: 0px 0px 1px #777;
 }
 
 #fridge-ingredients-container {
   background: url(http://www.clker.com/cliparts/w/d/g/L/n/8/fridge.svg);
   background-size: cover;
   position: absolute;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  display: block;
   top: 50px;
   left: 50px;
   height: 600px;
   width: 350px;
 }
 
+#fridge-buttons {
+  position: relative;
+  left: 25%;
+  width:50%;
+}
+
+#fridge-buttons button {
+  width: 100%;
+  margin-top: 2px;
+}
 #fridge-ingredients-list-container {
   position: relative;
   text-align: center;
-  top: 10px;
+  top: 50px;
   z-index: 1;
   font-size: 20px;
+  list-style-type: none;
 }
 
 #search-container {
@@ -47,29 +82,58 @@ h2 {
   border-width: 1px;
   width: 600px;
   height: 600px;
+  text-align: center;
+  font-size: 16px;
+  overflow: scroll;
+
+}
+
+#recipe-results-container li {
+  border: 2px dotted darkgrey;
+  border-width: 2px 0;
+  margin: 5px 0;
+}
+
+#recipe-results-container li:hover {
+  background: #ffffcc;;
 }
 
 #pantry-ingredients-container {
   background: url(http://images.ohsheglows.com/wp-content/uploads/2010/09/20100911IMG_28482_thumb.jpg);
   background-size: cover;
   position: absolute;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
   top:50px;
   right:50px;
   height: 600px;
   width: 350px;
 }
 
+#pantry-buttons {
+  position: relative;
+  left: 25%;
+  width:50%;
+}
+
+#pantry-buttons button {
+  width: 100%;
+  margin-top: 2px;
+}
+
 #pantry-ingredients-list-container {
   position: relative;
   text-align: center;
-  top: 10px;
+  top: 50px;
   font-size: 20px;
+  list-style-type: none;
 }
 
 #users-menu {
   position: absolute;
   top: 5px;
-  right: 40%;
+  right: 30%;
 }
 
 #recipe-modal {
@@ -82,7 +146,8 @@ h2 {
   padding-bottom: 50px;
   border: 1px solid white;
   background-color: slateblue;
-  width: 50%;
+  width: 100%;
+  height: 100%;
   z-index: 100; /* makes the div the top layer, so it’ll lay on top of the other content */
 }
 
