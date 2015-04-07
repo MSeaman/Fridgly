@@ -62,8 +62,8 @@ App.Views.PantryIngredientList = Backbone.View.extend({
   },
 
   renderOne: function(ingredient) {
-    var poop = new App.Views.PantryIngredient({model: ingredient});
-    poop.$el.appendTo($('#pantry-ingredients-list-container'));
+    var pantryListItemView = new App.Views.PantryIngredient({model: ingredient});
+    pantryListItemView.$el.appendTo($('#pantry-ingredients-list-container'));
   }
   
 });
