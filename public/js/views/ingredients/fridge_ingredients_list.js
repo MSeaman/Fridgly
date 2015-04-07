@@ -7,8 +7,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     this.listenTo(this.collection, 'all', this.renderAll);
     this.listenTo(this.collection, 'remove', this.delete);
     this.listenTo(this.collection, 'create', App.fridgeIngredients.getFridgeIngredients);
-
-    this.getUsers();
+    App.users.getUsers();
   },
 
   el: 'body',
@@ -20,22 +19,6 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     'click .move-to-pantry': 'addToPantry',
     'click .select-user':'setUser',
     'click .search-oldest': 'searchOldest'
-  },
-
-  getUsers: function () {
-    $.ajax({
-      url: '/users',
-      method: 'get'
-    }).done(this.populateUsers)
-  },
-
-  populateUsers: function (users) {
-    for (var i = 0; i < users.length; i++) {
-      var userName = users[i].name;
-      var userId = users[i].id;
-      var dropDownItem = $('<option>').attr('value', userId).html(userName);
-      $('#userDropDown').append(dropDownItem);
-    };
   },
 
   setUser: function() {

@@ -31,9 +31,8 @@ App.Collections.Recipes = Backbone.Collection.extend({
   	  var ingredientUrlFragment = includeIngredient + encodeURI(searchedIngredient.attributes.name).toLowerCase();
   	  searchTerms.push(ingredientUrlFragment);
   	};
-
   	var newSearchTerms = searchTerms.join('');
-  	var newUrl = searchRecipesBase + newSearchTerms;
+    var newUrl = searchRecipesBase + newSearchTerms;
   	console.log(newUrl);
   	$.ajax ({
   		url: newUrl,

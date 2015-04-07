@@ -19,11 +19,11 @@ App.Views.RecipeModal = Backbone.View.extend({
   },
   
   showModal: function () {
-    this.$el.show();
+    $('#show-recipe').show();
   },
   
   hideModal: function () {
-    this.$el.hide();
+    $('#show-recipe').hide();
   }
   
 });

@@ -6,30 +6,35 @@ App.Views.CreateUser = Backbone.View.extend ({
 
   initialize: function() {
       this.template = Handlebars.compile($('#users-template').html());
+      this.getAllergens();
   },
 
   el: 'body',
   
   getAllergens: function () {
     $.ajax({
-      url: '/users',
+      url: '/alergens',
       method: 'get'
-    }).done(this.populateUsers)
+    }).done(this.populateAllergens)
   },
 
-  populateAllergens: function (users) {
-    for (var i = 0; i < users.length; i++) {
-      var allergenName = users[i].name;
-      var userId = users[i].id;
-      var dropDownItem = $('<option>').attr('value', userId).html(userName);
-      $('#userDropDown').append(dropDownItem);
+  populateAllergens: function (allergens) {
+    for (var i = 0; i < allergens.length; i++) {
+      var allergenName = allergens[i].name;
+      var allergenId = allergens[i].id;
+      var dropDownItem = $('<option>').attr('value', allergenId).html(allergenName);
+      $('#userAllergy').append(dropDownItem);
     };
   },
 
   createUser: function () {
     console.log('create user button clicked brough');
     var userName = $('#create-user-input').val();
-    this.collection.create({name: userName});
+    var allergen = $('#userAllergy').val();
+    App.users.create({name: userName, allergy: allergen}, {success: function () {
+      App.users.getUsers();
+    }}
+      );
 
   }
 

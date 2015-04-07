@@ -5,23 +5,23 @@ App.Collections.Users = Backbone.Collection.extend({
 
 	model: App.Models.User,
 
-	getUsers: function () {
-		console.log('getting users');
-		$.ajax({
-			url: '/users',
-			method: 'get'
-		}).done(this.addUser)
+  getUsers: function () {
+    $.ajax({
+      url: '/users',
+      method: 'get'
+    }).done(this.populateUsers)
+  },
 
-	},
-
-	addUser: function (users) {
-		console.log('got user');
-		App.users.reset();
-		users.forEach(function(users) {
-			App.users.add({
-				name: user.name,
-			});
-		});
-	}
+  populateUsers: function (users) {
+  	$('#userDropDown').empty();
+    for (var i = 0; i < users.length; i++) {
+      var userName = users[i].name;
+      var userId = users[i].id;
+      var userAllergy = users[i].allergy;
+      var dropDownItem = $('<option>').attr('value', userId).html(userName);
+      $('#userDropDown').append(dropDownItem);
+      App.users.create({ name: userName, id: userId, allergy: userAllergy });
+    };
+  }
 
 });
