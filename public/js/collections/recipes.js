@@ -31,30 +31,89 @@ App.Collections.Recipes = Backbone.Collection.extend({
   	  var ingredientUrlFragment = includeIngredient + encodeURI(searchedIngredient.attributes.name).toLowerCase();
   	  searchTerms.push(ingredientUrlFragment);
   	};
+
   	var newSearchTerms = searchTerms.join('');
   	var newUrl = searchRecipesBase + newSearchTerms;
   	console.log(newUrl);
   	$.ajax ({
   		url: newUrl,
   		method: 'get'
-  	}).done(this.addRecipes)
+		}).done(this.searchRecipes)
   },
 
-  addRecipes: function (recipes) {
-  	var results = recipes.matches;
+	searchRecipes: function(recipes) {
+		console.log('search Recipes fired')
+		// pull items from fridge and pantry add to search array
+	  var results = recipes.matches
+		var fridgePull = []
+		var pantryPull = []
+		var localIngredients = []
+
+		$.ajax({
+			url:'/users/' + App.fridgeIngredients.userId + '/fridge_ingredients',
+			method: 'GET'
+		}).done(function(fridge){
+			for(var i=0; i<fridge.length; i++)
+				fridgePull.push(fridge[i].name.toLowerCase())
+		}).done(function(){
+				$.ajax({
+					url:'/users/' + App.fridgeIngredients.userId + '/pantry_ingredients',
+					method: 'GET'
+				}).done(function(pantry){
+					for(var i=0; i<pantry.length; i++)
+					pantryPull.push(pantry[i].name.toLowerCase())
+				}).done(function(){
+						localIngredients = fridgePull.concat(pantryPull)
+						localIngredients.sort(function (a, b){
+							return b.length - a.length
+						})
+//						console.log(localIngredients)
+				})
+
+		}).done(function() {
+      for (var j=0; j<results.length; j++){
+        var recipeIng = results[j].ingredients
+				var missing = []
+        var foundIng = []
+					for(var m=0; m<recipeIng.length; m++) {
+						missing.push(recipeIng[m])
+					}
+				  	for (var i=0; i<localIngredients.length; i++){
+				    	var localItem = localIngredients[i]+'(s|es)?'
+				    	var searchItem = new RegExp(localItem, 'g')
+          			for( var h=0; h<recipeIng.length; h++){
+            			if (searchItem.test(recipeIng[h]) == true)
+              		foundIng.push(h)
+	          }
+	      }
+	          foundIng.sort()
+	          for(var k=foundIng.length -1; k>=0; k--) {
+	            missing.splice(foundIng[k], 1)
+						}
+	          recipes.matches[j].missingIng = missing
+}
   	App.recipes.reset();
+		var order = [];
   	for (var i = 0; i < recipes.matches.length; i++) {
-  		App.recipes.create({
-  			name: recipes.matches[i].recipeName,
-  			ingredients: recipes.matches[i].ingredients,
-  			recipeId: recipes.matches[i].id
-  		});
-  	}
-  },
-
-  checkIngredients: function (ingredients) {
-    //underscore filter, js string match?
-    //how to display
+			var holderArray = []
+			holderArray.push(recipes.matches[i].missingIng.length)
+			holderArray.push(i)
+		 	order.push(holderArray)
+		}
+		order.sort(function (a, b) {
+			var x=a[0];
+			var y=b[0];
+			return(x-y);
+		})
+		for (var i = 0; i < order.length; i++) {
+			lowestId = order[i][1]
+	  	App.recipes.create({
+	  		name: recipes.matches[lowestId].recipeName,
+	  		ingredients: recipes.matches[lowestId].ingredients,
+	  		recipeId: recipes.matches[lowestId].id,
+				missingIng: recipes.matches[lowestId].missingIng
+	  		});
   }
-  
+})
+}
 });
