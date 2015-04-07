@@ -33,6 +33,7 @@ App.Views.Search = Backbone.View.extend({
     App.searchIngredients.forEach(function(ingredient){
       App.searchIngredients.remove(ingredient);
       $('#search-ingredients-container').empty();
+      $('#recipe-results-container').empty();
     });
   },
 
