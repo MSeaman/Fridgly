@@ -41,64 +41,48 @@
 </head>
 
 <body>
-	<h1>Fridgly, Brough</h1>
 	
-	<br>
-	<br>
-	<br>
-	<select name="userDropDown" id="userDropDown">
-		
-	</select>
-	<button class='select-user'>Select User</button>
+	<h1>Fridgly</h1>
+	<div id="users-menu">
+		<select name="userDropDown" id="userDropDown">
+		</select>
+		<button class='select-user'>Select User</button>
+		<input id="create-user-input" type="text" class="user" placeholder="New User">
+		<button class='create-user'>Create User</button>
+		<button class='edit-user'>Edit Current User</button>
+	</div>	
 
-<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 
 	<div id='fridge-ingredients-container'>
-		<h1>Fridge Ingredients</h1>
-		<input id="add-fridge-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
-		<button class="add-ingredient">Add Ingredient</button>
-		<button class="delete-fridge-ingredient">Remove Ingredient</button>
-		<button class="add-to-search">Add to Search</button>
-		<button class="move-to-pantry">Move to Pantry</button>
-		<img class="fridge-pic" src="http://www.clker.com/cliparts/w/d/g/L/n/8/fridge.svg">
+		<h2>Fridge Ingredients</h1>
+			<div id="fridge-buttons">
+				<input id="add-fridge-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
+				<button class="add-ingredient">Add Ingredient</button>
+				<button class="delete-fridge-ingredient">Remove Ingredient</button>
+				<button class="add-to-search">Add to Search</button>
+				<button class="move-to-pantry">Move to Pantry</button>
+			</div>
 		<div id='fridge-ingredients-list-container'></div>
 	</div>
 
 	<div id='pantry-ingredients-container'>
-		<h1>Pantry Ingredients</h1>
-		<input id="add-pantry-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
-		<button class="add-pantry-ingredient">Add Ingredient</button>
-		<button class="delete-pantry-ingredient">Remove Ingredient</button>
-		<button class="move-to-fridge">Move to Fridge</button>
+		<h2>Pantry Ingredients</h1>
+			<div id="pantry-buttons">
+				<input id="add-pantry-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
+				<button class="add-pantry-ingredient">Add Ingredient</button>
+				<button class="delete-pantry-ingredient">Remove Ingredient</button>
+				<button class="move-to-fridge">Move to Fridge</button>
+			</div>
 		<div id='pantry-ingredients-list-container'></div>
 	</div>
 	<div id='search-container'>
-		<h1>Search, Brough</h1>
+		<h2>Search</h1>
 		<div id='search-ingredients-container'></div>
 		<button class='search-button'>Search For Recipes</button>
 		<button class='advanced-search-button'>Advanced Search</button>
 		<button class='reset-search-button'>Reset Search</button>
 		<div id = 'recipe-results-container'></div>
+
 	<div id='advanced-search-container'>
 		<h1>Advanced Search Breau</h1>
 		<h2>Filter by Holiday</h2>
@@ -152,6 +136,7 @@
 		<br>
 		<br>
 	</div>
+
 	</div>
 		<template id="pantry-ingredients-template">
 			<li class="pantry-ingredient-name" data-id={{pantryIngId}}>{{name}}</span>
@@ -164,7 +149,7 @@
 		</template>
 
 	<template id="users-template">
-		<h1>Users</h1>
+		<h4>Users</h1>
 		<li class="current-user" data-id ='{{id}}'>{{name}}</li>
 		<li class="create-user">Create User</li>
 		<li class="edit-user">Edit Current User</li>

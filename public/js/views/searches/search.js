@@ -10,6 +10,7 @@ App.Views.Search = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.collection, 'add', this.renderAll);
+    $('#advanced-search-container').hide();
   },
  
   renderAll: function() {
@@ -24,6 +25,7 @@ App.Views.Search = Backbone.View.extend({
 
   search: function () {
     App.recipes.search();
+    
   },
 
   reset: function(){
@@ -35,8 +37,10 @@ App.Views.Search = Backbone.View.extend({
   },
 
   advancedSearch: function(){
+
     //clicks advanced search button and new advanced search view is created and rendered
     var advancedSearchView =  new App.Views.AdvancedSearch;
+
   }
 
 });
