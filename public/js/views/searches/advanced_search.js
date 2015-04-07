@@ -102,6 +102,7 @@ App.Views.AdvancedSearch = Backbone.View.extend({
   },
 
   search: function () {
+    $('#recipe-results-container').show();
   	console.log('search button has been clicked brough');
   	var includeIngredient = '&allowedIngredient%5B%5D=';
   	var excludeIngredient = '&excludedIngredient%5B%5D=';
