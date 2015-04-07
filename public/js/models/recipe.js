@@ -24,27 +24,10 @@ App.Models.Recipe = Backbone.Model.extend({
     $.ajax ({
     	url: newUrl,
     	method: 'get'
-<<<<<<< HEAD
     })
     .done(this.addRecipeInfo, this)	
 },
 
-addRecipeInfo: function (recipeData) {
-	console.log('getting full recipe info brough');
-
-  thisModel.set({
-		name: recipeData.name,
-		recipeId: recipeData.id,
-		fullIngredients: recipeData.ingredientLines,
-		recipeUrl: recipeData.source.sourceRecipeUrl
-	});
-  App.recipeModal.model = thisModel;
-  App.recipeModal.render();
-  App.recipeModal.showModal();
-=======
-    }).done(this.addRecipeInfo, this)	
-  },
->>>>>>> 79fce78e0a06d5c21b7730bd7056db7f63a65da0
 
   addRecipeInfo: function (recipeData) {
   	console.log('getting full recipe info brough');
