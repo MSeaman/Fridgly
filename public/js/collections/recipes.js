@@ -56,8 +56,8 @@ App.Collections.Recipes = Backbone.Collection.extend({
 		}).done(function(fridge){
 			for(var i=0; i<fridge.length; i++)
 				fridgePull.push(fridge[i].name.toLowerCase())
-//				debugger
 		})
+
 				$.ajax({
 					url:'/users/' + App.fridgeIngredients.userId + '/pantry_ingredients',
 					method: 'GET'
@@ -125,7 +125,7 @@ App.Collections.Recipes = Backbone.Collection.extend({
 	  		recipeId: recipes.matches[lowestId].id,
 				missingIng: recipes.matches[lowestId].missingIng
 	  		});
+      }
+  })
   }
-})
-}
 });
