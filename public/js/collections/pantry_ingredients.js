@@ -5,7 +5,7 @@ App.Collections.PantryIngredients = Backbone.Collection.extend({
 
 	model: App.Models.PantryIngredient,
 	
-	user: '',
+	userId: '',
 
 	getPantryIngredients: function () {
 		//var userId = get id from user selected in drop down

@@ -34,8 +34,11 @@ App.Views.PantryIngredientList = Backbone.View.extend({
   addIngredient: function(){
     console.log('add ingredient button clicked brough');
     var ingredientName = $('#add-pantry-ingredient-input').val();
-    this.collection.create({name: ingredientName});
-  },
+    this.collection.create({name: ingredientName}, {
+      success: function() {
+          App.pantryIngredients.getPantryIngredients()
+      }
+     });  },
 
   addToFridge: function(){
     console.log('add to fridge button clicked doooooood');
