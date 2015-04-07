@@ -39,6 +39,8 @@ App.Views.Search = Backbone.View.extend({
       $('#search-ingredients-container').empty();
       $('#recipe-results-container').empty();
       $('#recipe-results-container').hide();
+      $('#show-recipe').hide();
+      $('#advanced-search-container').hide();
     });
   },
 
