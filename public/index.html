@@ -3,11 +3,8 @@
 <head>
 
   <meta charset="UTF-8">
-<<<<<<< HEAD
   <title>Fridgly Broooo</title>
-=======
-  <title>Fridgly</title>
->>>>>>> 79fce78e0a06d5c21b7730bd7056db7f63a65da0
+
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
@@ -44,22 +41,37 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 	<h1>Fridgly, Brough</h1>
+	
+	<br>
+	<br>
+	<br>
 	<select name="userDropDown" id="userDropDown">
 		
 	</select>
 	<button class='select-user'>Select User</button>
-=======
-	<h1>Fridgly</h1>
-	<div id="users-menu">
-		<select name="userDropDown" id="userDropDown">
-			<option id="userDropDownValue" value="1">1</option>
-			<option id="userDropDownValue" value="2">2</option>
-		</select>
-		<button class='select-user'>Select User</button>
-	</div>	
->>>>>>> 79fce78e0a06d5c21b7730bd7056db7f63a65da0
+
+<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 	<div id='fridge-ingredients-container'>
 		<h1>Fridge Ingredients</h1>
@@ -89,6 +101,27 @@
 		<div id = 'recipe-results-container'></div>
 	<div id='advanced-search-container'>
 		<h1>Advanced Search Breau</h1>
+		<h2>Filter by Holiday</h2>
+		<select name="holdidayDropDown" id="holidayDropDown">
+			<option value="blank">--Select an Option--</option>
+		</select> <br>
+		<h2>Filter by Alergen</h2>
+		<select name="alergenDropDown" id="alergenDropDown">
+			<option value="blank">--Select an Option--</option>
+		</select> <br>
+		<h2>Filter by Cuisine Type</h2>
+		<select name="cuisineDropDown" id="cuisineDropDown">
+			<option value="blank">--Select an Option--</option>
+		</select> <br>
+		<h2>Filter by Course</h2>
+		<select name="courseDropDown" id="courseDropDown">
+			<option value="blank">--Select an Option--</option>
+		</select> <br>
+		<h2>Filter by Diet</h2>
+		<select name="dietDropDown" id="dietDropDown">
+			<option value="blank">--Select an Option--</option>
+		</select> <br>
+		<h2>Set Flavor Levels</h2>
 		<label for="spicy-level-min">Spicy Level Min</label>
 		<input type=range min=0 max=1 value=0 id='spicy-level-min'step=.05 >
 		<label for="spicy-level-max">Spicy Level Max</label>
@@ -112,14 +145,17 @@
 		<label for="meaty-level-min">Meaty Level Min</label>
 		<input type=range min=0 max=1 value=0 id='meaty-level-min'step=.05 >
 		<label for="meaty-level-max">Meaty Level Max</label>
-		<input type=range min=0 max=1 value=1 id='meaty-level-max'step=.05 >
-		
+		<input type=range min=0 max=1 value=1 id='meaty-level-max'step=.05 > <br>
+		<button class='advanced-search-button'>Search For Recipes</button>
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
 	</div>
 		<template id="pantry-ingredients-template">
 			<li class="pantry-ingredient-name" data-id={{pantryIngId}}>{{name}}</span>
 			<input type="checkbox" id ='pantry-ingredient-checkbox' >
-	
 		</template>
 
 		<template id="fridge-ingredients-template">
@@ -136,7 +172,7 @@
 	
 	<template id='recipe-list-item-template'>
 		<li class='recipe-name'>{{name}}</li>
-		<li class='ingredients'>{{ingredients}}</li
+		<li class='ingredients'>{{ingredients}}</li>
 		<li class='recipe-id'>{{recipeId}}</li>			
 	</template>
 	
@@ -145,15 +181,11 @@
 			<iframe src="{{recipeUrl}}" frameborder="0" allowfullscreen></iframe>
 			<script type="text/javascript"> $(document).ready(function () {$("iframe").width(600);
         		$("iframe").height(600);});
-</script>
+			</script>
 			<h2 id='close'>CLOSE</h2>
 		</div>
 	</template>
-	<script type="text/javascript"> $(document).ready(function () {$("iframe").width(80 + '%');
-                $("iframe").height(1300);});</script>
-
-
-
+	
 
 
 

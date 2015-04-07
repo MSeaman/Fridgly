@@ -1,7 +1,6 @@
 // spaces between parenthesis and curly braces
 // prefer { property: value } to {property: value}
 
-
 var application_root  = __dirname;
 var express           = require('express');
 var logger            = require('morgan');
@@ -10,6 +9,11 @@ var bodyParser        = require('body-parser');
 var User              = models.users;
 var Fridge_ingredient = models.fridge_ingredients;
 var Pantry_ingredient = models.pantry_ingredients;
+var Diet              = models.diets;
+var Alergen           = models.alergens;
+var Course            = models.courses;
+var Cuisine           = models.cuisines;
+var Holiday           = models.holidays;
 var app               = express();
 
 app.use(logger('dev'));
@@ -177,6 +181,7 @@ app.put('/pantry_ingredients/:id', function (req, res) {
 	  });
 });
 
+//Delete Pantry Ingredients
 app.delete('/pantry_ingredients/:id', function (req, res) {
 	Pantry_ingredient
 	  .findOne(req.params.id)
@@ -189,7 +194,50 @@ app.delete('/pantry_ingredients/:id', function (req, res) {
 	  });
 });
 
+//Get Holidays
+app.get('/holidays', function (req, res) {
+  Holiday
+  .findAll()
+  .then(function (holidays) {
+    res.send(holidays)
+  });
+});
 
+//Get Diets
+app.get('/diets', function (req, res) {
+  Diet
+  .findAll()
+  .then(function (diets) {
+    res.send(diets)
+  });
+});
+
+//Get Alergens
+app.get('/alergens', function (req, res) {
+  Alergen
+  .findAll()
+  .then(function(alergens) {
+    res.send(alergens)
+  });
+});
+
+//Get Cuisines
+app.get('/cuisines', function (req, res) {
+  Cuisine
+  .findAll() 
+  .then(function (cuisines) {
+    res.send(cuisines)
+  });
+});
+
+//Get Courses
+app.get( '/courses', function ( req, res ) {
+  Course
+  .findAll()
+  .then(function ( courses ) {
+    res.send( courses )
+  });
+});
 
 app.listen(3000, function() {
   console.log('Server running on 3000...');

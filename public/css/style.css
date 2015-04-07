@@ -7,10 +7,13 @@ h1 {
   text-align: center;
   font-size: 30;
 }
+#advanced-search-container {
+  visibility: visible;
+}
 
 #fridge-ingredients-container {
   position: absolute;
-  top: 25px;
+  top: 250px;
   left: 25px;
   height: 500px;
   width: 250px;

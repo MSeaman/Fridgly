@@ -49,6 +49,11 @@ App.Collections.Recipes = Backbone.Collection.extend({
   			recipeId: recipes.matches[i].id
   		});
   	}
+  },
+
+  checkIngredients: function (ingredients) {
+    //underscore filter, js string match?
+    //how to display
   }
   
 });
