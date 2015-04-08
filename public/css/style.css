@@ -65,11 +65,12 @@ button:hover {
 #fridge-ingredients-list-container {
   position: relative;
   text-align: center;
-  top: 50px;
+  top: 30px;
   z-index: 1;
   font-size: 20px;
   list-style-type: none;
-  height: 50%;
+  overflow: auto;
+  height: 36%;
   width: 100%;
 }
 
@@ -106,8 +107,8 @@ button:hover {
 #recipe-results-container {
   border-style: solid;
   border-width: 1px;
-  width: 600px;
-  height: 600px;
+  width: 100%;
+  height: 650px;
   text-align: center;
   font-size: 16px;
   overflow: scroll;
@@ -115,9 +116,25 @@ button:hover {
 }
 
 #recipe-results-container li {
-  border: 2px dotted darkgrey;
-  border-width: 2px 0;
-  margin: 5px 0;
+  border: 1px solid;
+  padding: 2px;
+  
+}
+
+p {
+  color: red;
+}
+
+li.recipe-name {
+  list-style-type: none;
+}
+
+br {
+  margin: 3px;
+}
+
+li.recipe-id {
+  display: none;
 }
 
 #recipe-results-container li:hover {
@@ -151,9 +168,12 @@ button:hover {
 #pantry-ingredients-list-container {
   position: relative;
   text-align: center;
-  top: 50px;
+  top: 30px;
   font-size: 20px;
   list-style-type: none;
+  overflow: auto;
+  height: 36%;
+  width:100%;
 }
 
 #users-menu {
@@ -162,40 +182,14 @@ button:hover {
   right: 30%;
 }
 
-#recipe-modal {
-  display: none; /* ensures it’s invisible until it’s called */
-  overflow: scroll;
-  position: fixed; /* makes the div go into a position that’s absolute to the browser viewing area */
-  left: 25%; /* positions the div half way horizontally */
-  top: 20px;
-  padding: 25px;
-  padding-bottom: 50px;
-  border: 1px solid white;
-  background-color: slateblue;
-  width: 100%;
+#show-recipe {
+  position: relative;
   height: 100%;
-  z-index: 100; /* makes the div the top layer, so it’ll lay on top of the other content */
-}
-
-#recipe-modal img {
-  height: 300px;
-}
-
-.close-modal {
-  float:right;
-  cursor: pointer;
-}
-
-#recipe-modal div.close-modal {
   width: 100%;
-  height: 32px;
+  z-index: 100;
 }
 
-#recipe-modal div.modal-info, #movie-modal div.modal-image {
-  width: 50%;
-  float: left;
-}
-
-#recipe-modal h2 {
-  margin-top: 0;
+#show-recipe iframe {
+  height: 100%;
+  width:100%;
 }

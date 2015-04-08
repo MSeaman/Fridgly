@@ -5,6 +5,8 @@ App.Collections.Users = Backbone.Collection.extend({
 
 	model: App.Models.User,
 
+  //these 2 functions are run on initialize. 
+  //getUsers grabs all the users in the database and populateUsers will put the users into the drop down menu.
   getUsers: function () {
     $.ajax({
       url: '/users',

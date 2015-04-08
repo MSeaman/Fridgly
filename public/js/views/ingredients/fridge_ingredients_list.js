@@ -28,6 +28,8 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     App.pantryIngredients.getPantryIngredients();
   },
 
+  //This function takes whatever number the user sets 'add oldest to serch' and puts that into the search.
+  //If the user sets it to 2, it will take the 2 oldest items and the fridge and put it into search.
   searchOldest: function () {
     App.searchIngredients.reset();
     $.ajax({
@@ -66,7 +68,8 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     };
   },
 
-
+  //This function grabs an ingredient based on whether or not it's checkbox has been ticked. 
+  //If it has, it will take it's id and add it to the search collection.
   selectIngredient: function () {
     console.log('select ingredient button clicked doooooood');
     var fridge = $('#fridge-ingredients-list-container');

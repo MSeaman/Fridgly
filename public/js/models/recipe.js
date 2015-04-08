@@ -28,7 +28,6 @@ App.Models.Recipe = Backbone.Model.extend({
     .done(this.addRecipeInfo, this)	
 },
 
-
   addRecipeInfo: function (recipeData) {
   	console.log('getting full recipe info brough');
     thisModel.set({
