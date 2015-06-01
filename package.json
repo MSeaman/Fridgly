@@ -2,7 +2,7 @@
   "name": "fridgly",
   "version": "1.0.0",
   "description": "suite fridgly app, breau",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
