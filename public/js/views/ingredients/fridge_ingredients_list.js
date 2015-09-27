@@ -6,7 +6,10 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     this.listenTo(this.collection, 'create', this.save);
     this.listenTo(this.collection, 'all', this.renderAll);
     this.listenTo(this.collection, 'remove', this.delete);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d808f5... 'added advanced search feature'
     this.getUsers();
   },
 
