@@ -26,7 +26,6 @@ App.Collections.Recipes = Backbone.Collection.extend({
     var searchTerms = [];
     var search = $('#search-ingredients-container');
     var pantrySearch = $('#pantry-ingredients-list-container');
-<<<<<<< HEAD
   	for (var i = 0; i < search.children().length; i++) {
   	  var ingredientId = parseInt(search.children().eq(i).children().eq(0).attr('data-id'));
   	  var searchedIngredient = App.searchIngredients.findWhere({fridgeIngId: ingredientId});
@@ -45,8 +44,6 @@ App.Collections.Recipes = Backbone.Collection.extend({
     // }
   	};
   	var newSearchTerms = searchTerms.join('');
-<<<<<<< HEAD
-=======
     for (var i = 0; i < search.children().length; i++) {
       var ingredientId = parseInt(search.children().eq(i).children().eq(0).attr('data-id'));
       var searchedIngredient = App.searchIngredients.findWhere({fridgeIngId: ingredientId});
@@ -54,21 +51,12 @@ App.Collections.Recipes = Backbone.Collection.extend({
       searchTerms.push(ingredientUrlFragment);
     };
     var newSearchTerms = searchTerms.join('');
->>>>>>> 540822a... comments and formatting
     var newUrl = searchRecipesBase + newSearchTerms;
     console.log(newUrl);
     $.ajax ({
       url: newUrl,
       method: 'get'
     }).done(this.searchRecipes)
-=======
-    var newUrl = searchRecipesBase + newSearchTerms;
-  	console.log(newUrl);
-  	$.ajax ({
-  		url: newUrl,
-  		method: 'get'
-		}).done(this.searchRecipes)
->>>>>>> 37702e8... oh my god fuck me
   },
 
   searchRecipes: function(recipes) {
@@ -79,35 +67,26 @@ App.Collections.Recipes = Backbone.Collection.extend({
     var pantryPull = [];
     var localIngredients = [];
 
-<<<<<<< HEAD
 		$.ajax({
 			url:'/users/' + App.fridgeIngredients.userId + '/fridge_ingredients',
 			method: 'GET'
 		}).done(function(fridge){
 			for(var i=0; i<fridge.length; i++)
 				fridgePull.push(fridge[i].name.toLowerCase())
-<<<<<<< HEAD
 //				debugger
 		})
-<<<<<<< HEAD
-=======
 		  }).done(function(){
->>>>>>> 1addd53... css fix
-=======
->>>>>>> e412697... css and readme
 				$.ajax({
 					url:'/users/' + App.fridgeIngredients.userId + '/pantry_ingredients',
 					method: 'GET'
 				}).done(function(pantry){
 					for(var i=0; i<pantry.length; i++)
-<<<<<<< HEAD
 					pantryPull.push(pantry[i].name.toLowerCase())
 				}).done(function(){
 						localIngredients = fridgePull.concat(pantryPull)
 						localIngredients.sort(function (a, b){
 							return b.length - a.length;
 						})
-<<<<<<< HEAD
 //						console.log(localIngredients)
 
 		}).done(function() {
@@ -163,7 +142,6 @@ App.Collections.Recipes = Backbone.Collection.extend({
 	  		recipeId: recipes.matches[lowestId].id,
 				missingIng: recipes.matches[lowestId].missingIng
 	  		});
-=======
 					  pantryPull.push(pantry[i].name.toLowerCase())
 				  }).done(function() {
 						  localIngredients = fridgePull.concat(pantryPull)
@@ -195,7 +173,6 @@ App.Collections.Recipes = Backbone.Collection.extend({
     						}
     	          recipes.matches[j].missingIng = missing
           }
-=======
       		}).done(function() {
             for (var j=0; j<results.length; j++){
       		    var foundIng = []
@@ -224,7 +201,6 @@ App.Collections.Recipes = Backbone.Collection.extend({
       			console.log(missing)
       		}
       }).done(function() {
->>>>>>> e412697... css and readme
         	App.recipes.reset();
       		var order = [];
         	for (var i = 0; i < recipes.matches.length; i++) {
@@ -238,28 +214,22 @@ App.Collections.Recipes = Backbone.Collection.extend({
       			var y=b[0];
       			return(x-y);
       		})
-<<<<<<< HEAD
       		for (var i = 0; i < order.length; i++) {
-=======
       		for (var i = 0; i < 20; i++) {
->>>>>>> e412697... css and readme
+
+      		for (var i = 0; i < 20; i++) {
       			lowestId = order[i][1]
       	  	App.recipes.create({
       	  		name: recipes.matches[lowestId].recipeName,
       	  		ingredients: recipes.matches[lowestId].ingredients,
       	  		recipeId: recipes.matches[lowestId].id,
       				missingIng: recipes.matches[lowestId].missingIng
-<<<<<<< HEAD
       	  	});
           }
         })
->>>>>>> 1addd53... css fix
-=======
       	  		});
       }
   })
->>>>>>> e412697... css and readme
-=======
     $.ajax({
       url:'/users/' + App.fridgeIngredients.userId + '/fridge_ingredients',
       method: 'GET'
@@ -342,6 +312,5 @@ App.Collections.Recipes = Backbone.Collection.extend({
         });
       }
   });
->>>>>>> 540822a... comments and formatting
   }
 });

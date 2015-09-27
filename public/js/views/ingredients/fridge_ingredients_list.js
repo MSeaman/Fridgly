@@ -29,6 +29,27 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     'click .search-oldest': 'searchOldest'
   },
 
+<<<<<<< HEAD
+=======
+  //these 2 functions are run on initialize. 
+  //getUsers grabs all the users in the database and populateUsers will put the users into the drop down menu.
+  getUsers: function () {
+    $.ajax({
+      url: '/users',
+      method: 'get'
+    }).done(this.populateUsers)
+  },
+
+  populateUsers: function (users) {
+    for (var i = 0; i < users.length; i++) {
+      var userName = users[i].name;
+      var userId = users[i].id;
+      var dropDownItem = $('<option>').attr('value', userId).html(userName);
+      $('#userDropDown').append(dropDownItem);
+    };
+  },
+
+>>>>>>> cb7cd82... css and readme
   setUser: function() {
     App.fridgeIngredients.userId = $('#userDropDown').val();
     App.pantryIngredients.userId = $('#userDropDown').val();
