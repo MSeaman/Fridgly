@@ -22,6 +22,7 @@ $(function () {
 	//App.recipe = new App.Views.Recipe;
 	App.recipeModal = new App.Views.RecipeModal({model: App.recipe});
 	App.createUser = new App.Views.CreateUser({collection: App.users});
+	App.direction = new App.Views.Direction({collection: App.users})
 	
 
 });

@@ -22,6 +22,7 @@
 	<script src='js/collections/search_ingredients.js'></script>
 	<script src='js/collections/recipes.js'></script>
 	<script src='js/collections/users.js'></script>
+	<script src='js/views/users/directions.js'></script>
 	<script src='js/views/users/create_user.js'></script>
 	<script src='js/views/users/create_user.js'></script>
 	<script src='js/views/users/create_user.js'></script>
@@ -39,14 +40,17 @@
 </head>
 
 <body>
-	<h1>Fridgly</h1>
-	<div id="users-menu">
-		<select name="userDropDown" id="userDropDown">
-		</select>
-		<button class='select-user'>Select User</button>
-		<input id="create-user-input" type="text" class="user" placeholder="New User">
-		<button class='create-user'>Create User</button>
-		<button class='edit-user'>Edit Current User</button>
+<div id="container">
+	<div id="header">
+		<h1>Fridgly</h1>
+		<div id="users-menu">
+			<select name="userDropDown" id="userDropDown">
+			</select>
+			<button class='select-user'>Select User</button>
+			<input id="create-user-input" type="text" class="user" placeholder="New User">
+			<button class='create-user'>Create User</button>
+			<button class='edit-user'>Edit Current User</button>
+		</div>
 	</div>	
 	<h1>Fridgly, Brough</h1>
 	
@@ -109,6 +113,20 @@
 				<button class="move-to-fridge">Move to Fridge</button>
 			</div>
 		<div id='pantry-ingredients-list-container'></div>
+	</div>
+	<div id='directions-container'>
+		<h2>Instructions</h2>
+		<button class="expand-button">Expand</button>
+    <div id='direction-text' style='display:none;'>
+			<p>Fridgly is a kitchen ingredient management and recipe seach app. It allows the 	user to manage ingredients in the 'fridge' and 'pantry, and from these collections, 	select ingredients to search for recipes.</p>
+			<p>
+			The 'pantry' is a collection of ingredients that the user is assumed to always have. 	This feature is designed to provide a consistent set of ingredients to match against 	required recipe ingredients, allowing the user to see which are missing from his or 	her kitchen.</p>
+			<p>
+			The 'fridge' is a collection of recently aquired ingredients to be used as recipe 	search parameters. The 'advancedSearch' can perform queries filtering recipes for 	multiple parameters including holiday theme, allergy, cuisine type, course, and diet. 	Searches can be further tailored by setting max and min values for a number of values 	including spicy, sweet, sour, bitter, and meaty.</p>
+			<p>
+			Recipe search results return the name of the recipe, its required ingredients, and 	which of those required ingredients your fridge and pantry lack. Clicking on a recipe 	result will show its full recipe page.</p>
+			<button class='hide-button'>Hide</button>
+		</div>
 	</div>
 	<div id='search-container'>
     <h2>Search</h1>
@@ -214,4 +232,36 @@
 			<h2 id='close'>CLOSE</h2>
 		</div>
 	</template>
+</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 2d00364... added instructions
 </body>
