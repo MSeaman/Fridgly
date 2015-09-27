@@ -69,9 +69,12 @@ App.Collections.Recipes = Backbone.Collection.extend({
 <<<<<<< HEAD
 //				debugger
 		})
+<<<<<<< HEAD
 =======
 		  }).done(function(){
 >>>>>>> 1addd53... css fix
+=======
+>>>>>>> e412697... css and readme
 				$.ajax({
 					url:'/users/' + App.fridgeIngredients.userId + '/pantry_ingredients',
 					method: 'GET'
@@ -79,12 +82,12 @@ App.Collections.Recipes = Backbone.Collection.extend({
 					for(var i=0; i<pantry.length; i++)
 <<<<<<< HEAD
 					pantryPull.push(pantry[i].name.toLowerCase())
-//					debugger
 				}).done(function(){
 						localIngredients = fridgePull.concat(pantryPull)
 						localIngredients.sort(function (a, b){
 							return b.length - a.length;
 						})
+<<<<<<< HEAD
 //						console.log(localIngredients)
 
 		}).done(function() {
@@ -172,6 +175,36 @@ App.Collections.Recipes = Backbone.Collection.extend({
     						}
     	          recipes.matches[j].missingIng = missing
           }
+=======
+      		}).done(function() {
+            for (var j=0; j<results.length; j++){
+      		    var foundIng = []
+      				var missing = []
+              var recipeIng = results[j].ingredients
+      				for(var m=0; m<recipeIng.length; m++) {
+      					missing.push(recipeIng[m])
+      				}
+      				for (var i=0; i<localIngredients.length; i++) {
+      					var localItem = localIngredients[i]+'?';
+      					var searchItem = new RegExp(localItem, 'i');
+      					for( var h = 0; h < recipeIng.length; h++) {
+      						if (searchItem.test(recipeIng[h])) {
+      							console.log(recipeIng[h])
+      				  		foundIng.push(h)
+      						}
+      					}
+      	      }
+      		   console.log(foundIng)
+              foundIng.sort()
+              for(var k = foundIng.length-1; k >= 0; k--) {
+      					foundIng[k]
+                missing.splice(foundIng[k], 1)
+      				}
+             results[j].missingIng = missing
+      			console.log(missing)
+      		}
+      }).done(function() {
+>>>>>>> e412697... css and readme
         	App.recipes.reset();
       		var order = [];
         	for (var i = 0; i < recipes.matches.length; i++) {
@@ -185,16 +218,26 @@ App.Collections.Recipes = Backbone.Collection.extend({
       			var y=b[0];
       			return(x-y);
       		})
+<<<<<<< HEAD
       		for (var i = 0; i < order.length; i++) {
+=======
+      		for (var i = 0; i < 20; i++) {
+>>>>>>> e412697... css and readme
       			lowestId = order[i][1]
       	  	App.recipes.create({
       	  		name: recipes.matches[lowestId].recipeName,
       	  		ingredients: recipes.matches[lowestId].ingredients,
       	  		recipeId: recipes.matches[lowestId].id,
       				missingIng: recipes.matches[lowestId].missingIng
+<<<<<<< HEAD
       	  	});
           }
         })
 >>>>>>> 1addd53... css fix
+=======
+      	  		});
+      }
+  })
+>>>>>>> e412697... css and readme
   }
 });

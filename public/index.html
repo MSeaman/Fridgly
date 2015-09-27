@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>Fridgly Broooo</title>
+  <title>Fridgly</title>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
@@ -198,8 +198,13 @@
 	</template>
 	
 	<template id='recipe-list-item-template'>
-		<li class='recipe-name'>{{name}}</li>
-		<li class='ingredients'>{{ingredients}}</li>
+		<li class='recipe-name'>
+			
+			{{name}}
+			<br>
+			<br>
+		Ingredients Needed: {{ingredients}}
+			<p>Missing Ingredients: {{missingIng}}</p>
 		<li class='recipe-id'>{{recipeId}}</li>			
 	</template>
 	
