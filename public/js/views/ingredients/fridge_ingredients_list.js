@@ -8,10 +8,14 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     this.listenTo(this.collection, 'remove', this.delete);
     this.listenTo(this.collection, 'create', App.fridgeIngredients.getFridgeIngredients);
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.getUsers();
 =======
     App.users.getUsers();
 >>>>>>> 3225669... fixed search model
+=======
+    App.users.getUsers();
+>>>>>>> 37702e8... oh my god fuck me
   },
 
   el: 'body',

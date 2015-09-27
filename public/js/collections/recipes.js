@@ -45,6 +45,7 @@ App.Collections.Recipes = Backbone.Collection.extend({
     // }
   	};
   	var newSearchTerms = searchTerms.join('');
+<<<<<<< HEAD
 =======
     for (var i = 0; i < search.children().length; i++) {
       var ingredientId = parseInt(search.children().eq(i).children().eq(0).attr('data-id'));
@@ -60,6 +61,14 @@ App.Collections.Recipes = Backbone.Collection.extend({
       url: newUrl,
       method: 'get'
     }).done(this.searchRecipes)
+=======
+    var newUrl = searchRecipesBase + newSearchTerms;
+  	console.log(newUrl);
+  	$.ajax ({
+  		url: newUrl,
+  		method: 'get'
+		}).done(this.searchRecipes)
+>>>>>>> 37702e8... oh my god fuck me
   },
 
   searchRecipes: function(recipes) {
