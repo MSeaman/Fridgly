@@ -41,6 +41,7 @@ App.Collections.Recipes = Backbone.Collection.extend({
     //   var regex = i  + '?';
     //   searchTerms.push(regex);
     // }
+  	};
   	var newSearchTerms = searchTerms.join('');
   	var newUrl = searchRecipesBase + newSearchTerms;
   	console.log(newUrl);

@@ -6,10 +6,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     this.listenTo(this.collection, 'create', this.save);
     this.listenTo(this.collection, 'all', this.renderAll);
     this.listenTo(this.collection, 'remove', this.delete);
-<<<<<<< HEAD
-
-=======
->>>>>>> 5d808f5... 'added advanced search feature'
+    this.listenTo(this.collection, 'create', App.fridgeIngredients.getFridgeIngredients);
     this.getUsers();
   },
 
@@ -49,7 +46,11 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
  	addIngredient: function(){
  	  console.log('add ingredient button clicked brough');
  	  var ingredientName = $('#add-fridge-ingredient-input').val();
- 	  this.collection.create({name: ingredientName});
+    this.collection.create({name: ingredientName}, {
+      success: function() {
+          App.fridgeIngredients.getFridgeIngredients()
+      }
+     });
   },
 
   addToPantry: function(){
