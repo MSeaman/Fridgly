@@ -221,6 +221,14 @@ app.get('/alergens', function (req, res) {
   });
 });
 
+app.get('/alergens/:id', function (req, res) {
+  Alergen
+  .findOne(req.params.id)
+  .then(function (alergen) {
+    res.send(alergen);
+  });
+});
+
 //Get Cuisines
 app.get('/cuisines', function (req, res) {
   Cuisine

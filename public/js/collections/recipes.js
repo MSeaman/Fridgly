@@ -44,7 +44,7 @@ App.Collections.Recipes = Backbone.Collection.extend({
     // }
   	};
   	var newSearchTerms = searchTerms.join('');
-  	var newUrl = searchRecipesBase + newSearchTerms + maxResults;
+    var newUrl = searchRecipesBase + newSearchTerms;
   	console.log(newUrl);
   	$.ajax ({
   		url: newUrl,

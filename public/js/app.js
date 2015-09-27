@@ -9,6 +9,7 @@ var App = {
 
 $(function () {
 	console.log('app dot js initialize breau');
+	App.users = new App.Collections.Users
 	App.fridgeIngredients = new App.Collections.FridgeIngredients;
 	App.fridgeIngredientsListView = new App.Views.FridgeIngredientList({collection: App.fridgeIngredients});
 	App.pantryIngredients = new App.Collections.PantryIngredients;
