@@ -1,21 +1,15 @@
 App.Views.FridgeIngredientList = Backbone.View.extend({
 
   initialize: function () {
-    console.log('new fridge ingredients view created brough');
+    console.log('new fridge ingredients view created');
     this.listenTo(this.collection, 'reset', this.renderAll);
     this.listenTo(this.collection, 'create', this.save);
     this.listenTo(this.collection, 'all', this.renderAll);
     this.listenTo(this.collection, 'remove', this.delete);
     this.listenTo(this.collection, 'create', App.fridgeIngredients.getFridgeIngredients);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     this.getUsers();
-=======
-    App.users.getUsers();
->>>>>>> 3225669... fixed search model
-=======
-    App.users.getUsers();
->>>>>>> 37702e8... oh my god fuck me
+
   },
 
   el: 'body',
@@ -29,8 +23,6 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     'click .search-oldest': 'searchOldest'
   },
 
-<<<<<<< HEAD
-=======
   //these 2 functions are run on initialize. 
   //getUsers grabs all the users in the database and populateUsers will put the users into the drop down menu.
   getUsers: function () {
@@ -49,7 +41,6 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
     };
   },
 
->>>>>>> cb7cd82... css and readme
   setUser: function() {
     App.fridgeIngredients.userId = $('#userDropDown').val();
     App.pantryIngredients.userId = $('#userDropDown').val();
@@ -74,7 +65,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
   },
 
  	addIngredient: function(){
- 	  console.log('add ingredient button clicked brough');
+ 	  console.log('add ingredient button clicked');
  	  var ingredientName = $('#add-fridge-ingredient-input').val();
     this.collection.create({name: ingredientName}, {
       success: function() {
@@ -84,7 +75,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
   },
 
   addToPantry: function(){
-    console.log('select pantry button clicked doooooood');
+    console.log('select pantry button clicked');
     var fridge = $('#fridge-ingredients-list-container');
     for (var i = 0; i < fridge.children().length; i++) {
       if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {
@@ -100,7 +91,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
   //This function grabs an ingredient based on whether or not it's checkbox has been ticked. 
   //If it has, it will take it's id and add it to the search collection.
   selectIngredient: function () {
-    console.log('select ingredient button clicked doooooood');
+    console.log('select ingredient button clicked');
     var fridge = $('#fridge-ingredients-list-container');
     for (var i = 0; i < fridge.children().length; i ++) {
       if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {
@@ -112,7 +103,7 @@ App.Views.FridgeIngredientList = Backbone.View.extend({
   },
 
   delete: function(){
-  	console.log('delete button clicked doooooood');
+  	console.log('delete button clicked');
   	var fridge = $('#fridge-ingredients-list-container');
   	for (var i = 0; i < fridge.children().length; i++) {
       if (fridge.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {

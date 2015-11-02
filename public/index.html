@@ -10,13 +10,8 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.14/backbone.localStorage-min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.14/backbone.localStorage-min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-
 	<link rel="stylesheet" href="css/style.css">
+
 	<script src='js/app.js'></script>
 	<script src='js/models/fridge_ingredient.js'></script>
 	<script src='js/models/pantry_ingredient.js'></script>
@@ -28,8 +23,6 @@
 	<script src='js/collections/recipes.js'></script>
 	<script src='js/collections/users.js'></script>
 	<script src='js/views/users/directions.js'></script>
-	<script src='js/views/users/create_user.js'></script>
-	<script src='js/views/users/create_user.js'></script>
 	<script src='js/views/users/create_user.js'></script>
 	<script src='js/views/searches/search.js'></script>
 	<script src='js/views/searches/advanced_search.js'></script>
@@ -57,40 +50,13 @@
 			<button class='edit-user'>Edit Current User</button>
 		</div>
 	</div>	
-	<h1>Fridgly, Brough</h1>
 	
-	<br>
-	<br>
-	<br>
-	<select name="userDropDown" id="userDropDown">
-		
-	</select>
-	<button class='select-user'>Select User</button>
-
-<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	<br>
 	<br>
 	<br>
 
 	<div id='fridge-ingredients-container'>
-		<h2>Fridge Ingredients</h1>
+		<h2>Fridge Ingredients</h2>
 			<div id="fridge-buttons">
 				<input id="add-fridge-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
 				<button class="add-ingredient">Add Ingredient</button>
@@ -110,7 +76,7 @@
 	</div>
 
 	<div id='pantry-ingredients-container'>
-		<h2>Pantry Ingredients</h1>
+		<h2>Pantry Ingredients</h2>
 			<div id="pantry-buttons">
 				<input id="add-pantry-ingredient-input" type="text" class="ingredient" placeholder="New Ingredient">
 				<button class="add-pantry-ingredient">Add Ingredient</button>
@@ -119,6 +85,7 @@
 			</div>
 		<div id='pantry-ingredients-list-container'></div>
 	</div>
+
 	<div id='directions-container'>
 		<h2>Instructions</h2>
 		<button class="expand-button">Expand</button>
@@ -133,40 +100,41 @@
 			<button class='hide-button'>Hide</button>
 		</div>
 	</div>
+
 	<div id='search-container'>
-    <h2>Search</h1>
+    <h2>Search</h2>
     <div id='search-ingredients-container'></div>
     <div id='search-buttons'>
       <button class='search-button'>Search For Recipes</button>
       <button class='advanced-search-button'>Advanced Search</button>
       <button class='reset-search-button'>Reset Search</button>
-      
     </div>
     <div id = 'recipe-results-container'></div>
+  </div>
 
 	<div id='advanced-search-container'>
-		<h3>Advanced Search Breau</h1>
-		<h2>Filter by Holiday</h2>
+		<h2>Advanced Search</h2>
+		<h3>Filter by Holiday</h3>
 		<select name="holdidayDropDown" id="holidayDropDown">
 			<option value="blank">--Select an Option--</option>
 		</select> <br>
-		<h3>Filter by Alergen</h2>
+		<h3>Filter by Alergen</h3>
 		<select name="alergenDropDown" id="alergenDropDown">
 			<option value="blank">--Select an Option--</option>
 		</select> <br>
-		<h3>Filter by Cuisine Type</h2>
+		<h3>Filter by Cuisine Type</h3>
 		<select name="cuisineDropDown" id="cuisineDropDown">
 			<option value="blank">--Select an Option--</option>
 		</select> <br>
-		<h3>Filter by Course</h2>
+		<h3>Filter by Course</h3>
 		<select name="courseDropDown" id="courseDropDown">
 			<option value="blank">--Select an Option--</option>
 		</select> <br>
-		<h3>Filter by Diet</h2>
+		<h3>Filter by Diet</h3>
 		<select name="dietDropDown" id="dietDropDown">
 			<option value="blank">--Select an Option--</option>
 		</select> <br>
-		<h2>Set Flavor Levels</h2>
+		<h3>Set Flavor Levels</h3>
 		<label for="spicy-level-min">Spicy Level Min</label>
 		<input type=range min=0 max=1 value=0 id='spicy-level-min'step=.05 >
 		<label for="spicy-level-max">Spicy Level Max</label>
@@ -198,11 +166,7 @@
 		<br>
 		<br>
 	</div>
-		<button class='search-button'>Search For Recipes</button>
-		<button class='advanced-search-button'>Advanced Search</button>
-		<button class='reset-search-button'>Reset Search</button>
-		<div id = 'recipe-results-container'></div>
-	</div>
+
 		<template id="pantry-ingredients-template">
 			<li class="pantry-ingredient-name" data-id={{pantryIngId}}>{{name}}</span>
 			<input type="checkbox" id ='pantry-ingredient-checkbox' >
@@ -214,7 +178,7 @@
 		</template>
 
 	<template id="users-template">
-		<h4>Users</h1>
+		<h4>Users</h4>
 		<li class="current-user" data-id ='{{id}}'>{{name}}</li>
 		<li class="create-user">Create User</li>
 		<li class="edit-user">Edit Current User</li>
@@ -238,35 +202,5 @@
 		</div>
 	</template>
 </div>
-	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 2d00364... added instructions
 </body>

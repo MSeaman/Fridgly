@@ -17,7 +17,7 @@ App.Views.PantryIngredientList = Backbone.View.extend({
   },
 
   delete: function(){
-    console.log('delete button clicked doooooood');
+    console.log('delete button clicked');
     var pantry = $('#pantry-ingredients-list-container');
     for (var i = 0; i < pantry.children().length; i++) {
       if (pantry.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {
@@ -32,7 +32,7 @@ App.Views.PantryIngredientList = Backbone.View.extend({
   },
 
   addIngredient: function(){
-    console.log('add ingredient button clicked brough');
+    console.log('add ingredient button clicked');
     var ingredientName = $('#add-pantry-ingredient-input').val();
     this.collection.create({name: ingredientName}, {
       success: function() {
@@ -41,7 +41,7 @@ App.Views.PantryIngredientList = Backbone.View.extend({
      });  },
 
   addToFridge: function(){
-    console.log('add to fridge button clicked doooooood');
+    console.log('add to fridge button clicked');
     var pantry = $('#pantry-ingredients-list-container');
     for (var i = 0; i < pantry.children().length; i++) {
       if (pantry.children().eq(i).children().eq(0).children().eq(0).is(':checked') === true) {

@@ -5,8 +5,8 @@ App.Views.Search = Backbone.View.extend({
   events: {
     'click .search-button': 'search',
     'click .advanced-search-button': 'advancedSearch',
-    'click .reset-search-button': 'reset',
-    'click .remove-from-search-button': 'removeFromSearch'
+    'click .reset-search-button': 'reset'
+    // 'click .remove-from-search-button': 'removeFromSearch'
   },
 
   initialize: function(){
@@ -61,12 +61,6 @@ App.Views.Search = Backbone.View.extend({
     $('#advanced-search-container').show();
 
     //clicks advanced search button and new advanced search view is created and rendered
-    var advancedSearchView =  new App.Views.AdvancedSearch;
-<<<<<<< HEAD
-=======
-    $('#advanced-search-container').show();
-
->>>>>>> 9a56642... fixed merge
   }
 
 });

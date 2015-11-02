@@ -193,14 +193,4 @@ App.Views.AdvancedSearch = Backbone.View.extend({
   	}
   },
 
-
-
-
-
-
-
-
-
-
-
 });

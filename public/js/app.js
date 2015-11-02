@@ -1,4 +1,4 @@
-console.log('loaded brough');
+console.log('loaded');
 
 var App = {
 	Models: {},
@@ -8,7 +8,7 @@ var App = {
 };
 
 $(function () {
-	console.log('app dot js initialize breau');
+	console.log('app dot js initialize');
 	App.users = new App.Collections.Users
 	App.fridgeIngredients = new App.Collections.FridgeIngredients;
 	App.fridgeIngredientsListView = new App.Views.FridgeIngredientList({collection: App.fridgeIngredients});
