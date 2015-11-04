@@ -19,9 +19,9 @@ App.Collections.Recipes = Backbone.Collection.extend({
     var maxCookTime = '&maxTotalTimeInSeconds=';
     var apiKey = '?_app_id=66a10d93&_app_key=8bfd076a86bb08e4c703da382368127c';
     // Search Recipes = base + apiKey + Options ( such as - includedIngredient (lowercase url friendly))
-    var searchRecipesBase = 'http://api.yummly.com/v1/api/recipes' + apiKey;
+    var searchRecipesBase = 'https://api.yummly.com/v1/api/recipes' + apiKey;
     // Get Recipe = base + Selected Recipe ID string + apiKey
-    var getRecipeBase = 'http://api.yummly.com/v1/api/recipe';
+    var getRecipeBase = 'https://api.yummly.com/v1/api/recipe';
     var searchTerms = [];
     var search = $('#search-ingredients-container');
     var pantrySearch = $('#pantry-ingredients-list-container');
